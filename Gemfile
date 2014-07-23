@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -77,6 +77,7 @@ gem "memcachier"
 gem "gravatar_image_tag"
 gem "has_scope"
 gem "font-awesome-rails"
+gem "octokit"
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
