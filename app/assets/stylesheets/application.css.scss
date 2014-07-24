@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
  *= require_tree .
  */
+
+@import "variables";
+
+@import "bootstrap";
+@import "helpers";

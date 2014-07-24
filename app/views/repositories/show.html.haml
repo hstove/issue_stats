@@ -1,2 +1,18 @@
-%h1 Repositories#show
-%p Find me in app/views/repositories/show.html.haml
+%h2
+  = link_to "https://github.com/#{@github_key}", class: "plain-link", target: "_blank" do
+    = fa_icon "github", text: @github_key
+  %small
+    = @report.issues_count
+    Closed Issues
+  = duration_with_style(@report.median_close_time)
+
+%br
+%br
+
+= response_distribution_chart @report
+
+%small
+  Last updated
+  = time_ago_in_words @report.updated_at
+  ago
+

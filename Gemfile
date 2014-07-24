@@ -42,7 +42,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 gem "bootstrap-sass", "~> 3.1.0"
 gem "nested_form"
@@ -78,6 +78,7 @@ gem "gravatar_image_tag"
 gem "has_scope"
 gem "font-awesome-rails"
 gem "octokit"
+gem "lazy_high_charts"
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
@@ -100,4 +101,5 @@ group :test, :development do
   gem "quiet_assets"
   gem "coderay", "~> 1.0.5"
   gem "database_cleaner"
+  gem "binding_of_caller"
 end

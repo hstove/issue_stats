@@ -1,19 +1,36 @@
-  !!!
-  %html
+!!!
+%html
 
-    %head
-      %title
-        - if content_for? :title
-          = yield(:title)
-          = " - "
-        New Application
-      %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
-      %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-      = stylesheet_link_tag "application"
-      = javascript_include_tag "application"
-      = csrf_meta_tag
-      = favicon_link_tag
-      = yield(:head)
+  %head
+    %title
+      - if content_for? :title
+        = yield(:title)
+        = " - "
+      PRWatch
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:300,400,700", "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tag
+    = favicon_link_tag
+    = yield(:head)
 
-    %body
+  %body
+    .navbar.navbar-default{role: "navigation"}
+      .container
+        .navbar-header
+          -# %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+          -#   %span.sr-only Toggle navigation
+          -#   %span.icon-bar
+          -#   %span.icon-bar
+          -#   %span.icon-bar
+          %a.navbar-brand{href: "#"} PRWatch
+        %form#search.navbar-form.navbar-right{:role => "search"}
+          .form-group
+            %input#search-input.form-control{:placeholder => ":owner/:repository", :type => "text"}
+          %button.btn.btn-default{:type => "submit"} Submit
+    .container
       = yield
+    .footer.text-center
+      ©
+      = link_to "Hank Stoever", "http://hankstoever.com", target: "_blank", class: "plain-link-underlined"

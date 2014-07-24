@@ -1,0 +1,10 @@
+@import "variables"
+
+.plain-link
+  color: $text-color
+  &:hover
+    color: darken($text-color, 10)
+
+.plain-link-underlined
+  @extend .plain-link
+  text-decoration: underline
