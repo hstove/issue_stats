@@ -8,7 +8,7 @@ class Issue < Hashie::Mash
     end
 
     def duration_tiers
-      (1..10).map do |n|
+      [1.hour] + (1..10).map do |n|
         (3 ** n).hours
       end
     end
