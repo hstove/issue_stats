@@ -1,12 +1,17 @@
 class Report < ActiveRecord::Base
   serialize :basic_distribution, Hash
 
+  after_create :bootstrap_async
+
   class << self
     def from_key key
-      report = self.find_or_create_by(github_key: key) do |r|
-        r.bootstrap
-      end
+      report = self.find_or_create_by(github_key: key)
     end
+  end
+
+  def bootstrap_async
+    repo = GH.client.repo github_key
+    Rails.configuration.queue << Afterparty::BasicJob.new(self, :bootstrap)
   end
 
   def bootstrap
@@ -32,5 +37,9 @@ class Report < ActiveRecord::Base
 
   def issues
     @issues ||= Issue.find github_key, state: 'closed'
+  end
+
+  def ready?
+    !!issues_count
   end
 end
