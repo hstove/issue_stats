@@ -89,6 +89,7 @@ group :test, :development do
   gem "rack-livereload"
   gem "guard-rails"
   gem "guard-livereload"
+  gem "guard-rspec"
   gem "ruby_gntp"
   gem "rb-fsevent"
   gem "mocha", require: false
@@ -102,4 +103,6 @@ group :test, :development do
   gem "coderay", "~> 1.0.5"
   gem "database_cleaner"
   gem "binding_of_caller"
+  gem "webmock", "< 1.16"
+  gem "vcr"
 end

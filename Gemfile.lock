@@ -86,6 +86,8 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     columnize (0.8.9)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     css_parser (1.3.5)
       addressable
     dalli (2.7.2)
@@ -139,6 +141,9 @@ GEM
       multi_json (~> 1.8)
     guard-rails (0.5.3)
       guard (~> 2.0)
+    guard-rspec (4.3.1)
+      guard (~> 2.1)
+      rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.1)
@@ -269,6 +274,10 @@ GEM
       css_parser (~> 1.3.4)
       nokogiri (> 1.5.0)
       sprockets
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
     rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.3)
@@ -288,6 +297,7 @@ GEM
     ruby-graphviz (1.0.9)
     ruby-progressbar (1.5.1)
     ruby_gntp (0.3.4)
+    safe_yaml (1.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -342,8 +352,12 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vcr (2.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.15.2)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -379,6 +393,7 @@ DEPENDENCIES
   guard
   guard-livereload
   guard-rails
+  guard-rspec
   haml-rails
   has_scope
   hashie
@@ -418,3 +433,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   underscore-rails
   unicorn
+  vcr
+  webmock (< 1.16)

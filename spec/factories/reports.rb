@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :report do
-    github_key "MyString"
-    basic_distribution ""
-    github_stars ""
+    github_key "hstove/rbtc_arbitrage"
   end
 end

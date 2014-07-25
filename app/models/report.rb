@@ -24,7 +24,7 @@ class Report < ActiveRecord::Base
     issues.each do |issue|
       duration = issue.duration
       Issue.duration_tiers.each_with_index do |tier, index|
-        last_tier = Issue.duration_tiers[index-1] || 0
+        last_tier = index == 0 ? 0 : Issue.duration_tiers[index-1]
         if (duration <= tier) && (duration > last_tier)
           distro[tier.to_i] += 1
         end
