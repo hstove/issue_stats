@@ -105,4 +105,6 @@ group :test, :development do
   gem "binding_of_caller"
   gem "webmock", "< 1.16"
   gem "vcr"
+  gem 'coveralls', require: false
+  gem "simplecov", require: false
 end
