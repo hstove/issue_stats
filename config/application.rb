@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env)
 module Prwatch
   class Application < Rails::Application
     config.autoload_paths << "#{config.root}/lib"
-    config.queue = Afterparty::Queue.new
+    ActiveJob::Base.queue_adapter = :sidekiq
 
     config.generators do |g|
       g.template_engine :haml

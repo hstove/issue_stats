@@ -13,11 +13,12 @@ class Report < ActiveRecord::Base
 
   def bootstrap_async
     GH.repo github_key # ensure repo exists
-    Rails.configuration.queue << Afterparty::BasicJob.new(self, :bootstrap)
+    BootstrapReport.enqueue id
   end
 
   def bootstrap
     day_split = 8.0
+
     setup_distributions
     self.issues_count = issues.size
     issues.each do |issue|

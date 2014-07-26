@@ -9,9 +9,10 @@ RSpec.describe Report, :type => :model do
         closed_at: 10.minutes.ago
       )
     end
-    it "properly groups issues into their tier", :vcr do
-      allow(report).to receive(:issues).and_return([issue])
+    it "properly groups issues into their tier" do
+      allow_any_instance_of(Report).to receive(:issues).and_return([issue])
       report.save
+      report.reload
       first_tier = Issue.duration_tiers[0]
       expect(report.distribution(:basic, first_tier)).to eql(1)
       expect(report.distribution(:issues, first_tier)).to eql(1)
@@ -20,8 +21,9 @@ RSpec.describe Report, :type => :model do
 
     it "saves pull_requests into their own distribution" do
       issue.pull_request = {}
-      allow(report).to receive(:issues).and_return([issue])
+      allow_any_instance_of(Report).to receive(:issues).and_return([issue])
       report.save
+      report.reload
       first_tier = Issue.duration_tiers[0]
       expect(report.distribution(:basic, first_tier)).to eql(1)
       expect(report.distribution(:issues, first_tier)).to eql(0)
