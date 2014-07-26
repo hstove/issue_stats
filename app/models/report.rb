@@ -12,7 +12,7 @@ class Report < ActiveRecord::Base
   end
 
   def bootstrap_async
-    repo = GH.repo github_key
+    GH.repo github_key # ensure repo exists
     Rails.configuration.queue << Afterparty::BasicJob.new(self, :bootstrap)
   end
 
@@ -58,7 +58,7 @@ class Report < ActiveRecord::Base
     end
   end
 
-  def distribution type, tier
-    self.send("#{type}_distribution")[tier.to_i]
+  def distribution(type, tier)
+    send("#{type}_distribution")[tier.to_i]
   end
 end

@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Report, :type => :model do
   let(:report) { build :report }
   describe "#bootstrap" do
-    let(:issue) {
-      Issue.new({
+    let(:issue) do
+      Issue.new(
         created_at: 30.minutes.ago,
         closed_at: 10.minutes.ago
-      })
-    }
+      )
+    end
     it "properly groups issues into their tier", :vcr do
       allow(report).to receive(:issues).and_return([issue])
       report.save
@@ -32,7 +32,7 @@ RSpec.describe Report, :type => :model do
   describe "#setup_distributions" do
     it "sets up blank hashes properly" do
       report.setup_distributions
-      %w{pr basic issues}.each do |prefix|
+      %w(pr basic issues).each do |prefix|
         keys = report.send("#{prefix}_distribution".to_sym).keys
         expect(keys).to eql Issue.duration_tiers
       end
