@@ -1,3 +1,6 @@
 task bootstrap_all: :environment do
-  Report.all.collect(&:bootstrap_async)
+  Report.all.each do |report|
+    puts "Queueing @#{report.github_key}"
+    report.bootstrap_async
+  end
 end

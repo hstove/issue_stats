@@ -1,0 +1,4 @@
+---
+:queues:
+  - default
+  - active_jobs

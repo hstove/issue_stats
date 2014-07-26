@@ -1,5 +1,7 @@
 Prwatch::Application.routes.draw do
   mount Afterparty::Engine, at: "afterparty", as: "afterparty_engine"
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   get 'github/:owner/:repository' => 'repositories#show',
     constraints: {repository: /[\w|\.*]+/, owner: /[\w|\.*]+/}
 
