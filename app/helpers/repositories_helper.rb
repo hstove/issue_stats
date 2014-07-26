@@ -1,19 +1,20 @@
 module RepositoriesHelper
   def response_distribution_chart report
-    distro = report.basic_distribution
-    categories = distro.keys.map do |tier|
+    categories = Issue.duration_tiers.map do |tier|
       distance_of_time_in_words(tier)
     end
 
     chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(:text => "Distribution of Time to Close an Issue")
-      f.series name: "Issues", data: distro.values
+      # f.series name: "All Issues", data: report.basic_distribution.values
+      f.series name: "Issues", data: report.issues_distribution.values
+      f.series name: "Pull Requests", data: report.pr_distribution.values
       f.xAxis categories: categories, labels: {rotation: -45, align: 'right'}
 
-      f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+      f.legend(align: 'right', verticalAlign: 'top', floating: true)
       f.chart defaultSeriesType: "column"
-      f.legend enabled: false
       f.labels style: {"font-size" => "10px"}
+      f.plotOptions column: {stacking: 'normal'}
     end
 
     high_chart "repository-issue-distribution", chart

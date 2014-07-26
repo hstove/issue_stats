@@ -45,7 +45,7 @@ end
 # Use debugger
 gem 'debugger', group: [:development, :test]
 
-gem "bootstrap-sass", "~> 3.1.0"
+gem "bootstrap-sass", "~> 3.2.0"
 gem "nested_form"
 gem "cancan"
 gem "filepicker-rails"
