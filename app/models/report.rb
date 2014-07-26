@@ -18,25 +18,18 @@ class Report < ActiveRecord::Base
 
   def bootstrap
     day_split = 8.0
-    self.basic_distribution = Hash.new(0)
-    self.pr_distribution = Hash.new(0)
-    self.issues_distribution = Hash.new(0)
+    setup_distributions
     self.issues_count = issues.size
-    Issue.duration_tiers.each do |tier|
-      basic_distribution[tier.to_i] = 0
-      pr_distribution[tier.to_i] = 0
-      issues_distribution[tier.to_i] = 0
-    end
     issues.each do |issue|
       duration = issue.duration
       Issue.duration_tiers.each_with_index do |tier, index|
         last_tier = index == 0 ? 0 : Issue.duration_tiers[index-1]
         if (duration <= tier) && (duration > last_tier)
-          basic_distribution[tier.to_i] += 1
+          basic_distribution[tier] += 1
           if issue.pull_request
-            pr_distribution[tier.to_i] = 1
+            pr_distribution[tier] += 1
           else
-            issues_distribution[tier.to_i] = 1
+            issues_distribution[tier] += 1
           end
         end
       end
@@ -51,5 +44,21 @@ class Report < ActiveRecord::Base
 
   def ready?
     !!issues_count
+  end
+
+  def setup_distributions
+    hash = Hash.new(0)
+    self.basic_distribution = hash.clone
+    self.pr_distribution = hash.clone
+    self.issues_distribution = hash.clone
+    Issue.duration_tiers.each do |tier|
+      basic_distribution[tier] = 0
+      pr_distribution[tier] = 0
+      issues_distribution[tier] = 0
+    end
+  end
+
+  def distribution type, tier
+    self.send("#{type}_distribution")[tier.to_i]
   end
 end
