@@ -21,17 +21,12 @@ class Report < ActiveRecord::Base
     setup_distributions
     self.issues_count = issues.size
     issues.each do |issue|
-      duration = issue.duration
-      Issue.duration_tiers.each_with_index do |tier, index|
-        last_tier = index == 0 ? 0 : Issue.duration_tiers[index-1]
-        if (duration <= tier) && (duration > last_tier)
-          basic_distribution[tier] += 1
-          if issue.pull_request
-            pr_distribution[tier] += 1
-          else
-            issues_distribution[tier] += 1
-          end
-        end
+      tier = issue.duration_tier
+      basic_distribution[tier] += 1
+      if issue.pull_request
+        pr_distribution[tier] += 1
+      else
+        issues_distribution[tier] += 1
       end
     end
     self.median_close_time = issues.map(&:duration).median
