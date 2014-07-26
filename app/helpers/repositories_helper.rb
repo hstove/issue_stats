@@ -14,7 +14,7 @@ module RepositoriesHelper
       f.legend(align: 'right', verticalAlign: 'top', floating: true)
       f.chart defaultSeriesType: "column"
       f.labels style: {"font-size" => "10px"}
-      f.plotOptions column: {stacking: 'normal'}
+      f.plotOptions column: { stacking: 'normal' }
     end
 
     high_chart "repository-issue-distribution", chart
