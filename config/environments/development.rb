@@ -37,4 +37,5 @@ Prwatch::Application.configure do
   config.assets.debug = true
 
   WebMock.allow_net_connect!
+  config.cache_store = :null_store
 end

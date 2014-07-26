@@ -1,5 +1,5 @@
 Prwatch::Application.configure do
-    config.cache_store = :dalli_store
+  config.cache_store = :dalli_store
 
   config.logger = Logger.new(STDOUT)
 
