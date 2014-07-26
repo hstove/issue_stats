@@ -1,7 +1,7 @@
 class Issue < Hashie::Mash
   class << self
     def find key, opts={}
-      issues = GH.client.issues key, opts
+      issues = GH.issues key, opts
       issues.map do |pr|
         self.new pr.to_hash
       end
