@@ -1,5 +1,5 @@
 class RepositoriesController < ApplicationController
-  before_filter :fetch_report, only: [:show, :refresh]
+  before_filter :fetch_report, only: [:show, :refresh, :badge]
 
   def index
     @reports = Report.ready.paginate(page: params[:page])
@@ -10,6 +10,9 @@ class RepositoriesController < ApplicationController
   end
 
   def show
+    if params["format"] == "svg"
+      response.content_type = 'image/svg+xml'
+    end
   end
 
   def refresh
