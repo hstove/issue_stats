@@ -4,10 +4,13 @@
   - if @report.ready?
     %small
       = @report.language
+
     .pull-right
       = render partial: "badge_modal", locals: {report: @report}
+    %br
+    %br
+    %p.small= @report.description
 
-%br
 %br
 
 - if @report.ready?
