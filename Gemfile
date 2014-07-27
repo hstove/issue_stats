@@ -82,6 +82,8 @@ gem "octokit"
 gem "lazy_high_charts"
 gem "sidekiq"
 gem "activejob", require: "active_job"
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"

@@ -2,7 +2,8 @@ class RepositoriesController < ApplicationController
   before_filter :fetch_report, only: [:show, :refresh]
 
   def index
-    @reports = apply_sort(Report.ready, default: {
+    @reports = Report.ready.paginate(page: params[:page])
+    @reports = apply_sort(@reports, default: {
       sortable_direction: "ASC",
       sortable_attr: "median_close_time"
     })
