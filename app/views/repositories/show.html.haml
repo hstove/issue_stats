@@ -3,9 +3,9 @@
     = fa_icon "github", text: @github_key
   - if @report.ready?
     %small
-      = @report.issues_count
-      Closed Issues
-    = duration_with_style(@report.median_close_time)
+      = @report.language
+    .pull-right
+      = render partial: "badge_modal", locals: {report: @report}
 
 %br
 %br
@@ -14,7 +14,7 @@
   = response_distribution_chart @report
 
 - else
-  = debug @report
+  = debug @report if Rails.env.development?
   %h1.text-center Hang Tight!
   %p.text-center.text-warning We're fetching some data for this repository. Check back in a minute or two.
 
