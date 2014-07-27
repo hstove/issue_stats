@@ -29,7 +29,8 @@
             = fa_icon :github
             Issue Stats
         %form#search.navbar-form.navbar-right{:role => "search"}
-          .form-group
+          .form-group.input-group
+            .input-group-addon github.com/
             %input#search-input.form-control{:placeholder => ":owner/:repository", :type => "text"}
           %button.btn.btn-default{:type => "submit"} Submit
     - if current_page?("/")
