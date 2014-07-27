@@ -35,4 +35,10 @@ module RepositoriesHelper
       distance_of_time_in_words(duration).titleize + " to Close an Issue"
     end
   end
+
+  def badge_color(report)
+    index = report.duration_tier
+    colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
+    colors[index / 2] || colors.last
+  end
 end

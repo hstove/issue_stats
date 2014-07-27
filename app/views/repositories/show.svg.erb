@@ -1,0 +1,19 @@
+<% size = 220 %>
+<svg xmlns="http://www.w3.org/2000/svg" width="<%= size %>" height="18">
+  <% if @report.ready? %>
+    <% duration = distance_of_time_in_words(@report.median_close_time).titleize %>
+    <rect rx="4" width="<%= size %>" height="18" fill="<%= badge_color(@report) %>" />
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+      <text x="<%= size / 2 %>" y="12">
+        <%= duration %>
+        to Close an Issue
+      </text>
+    </g>
+  <% else %>
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+      <text x="<%= size / 2 %>" y="12">
+        Currently fetching statistics
+      </text>
+    </g>
+  <% end %>
+</svg>
