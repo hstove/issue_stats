@@ -6,7 +6,8 @@
       = @report.language
 
     .pull-right
-      = render partial: "badge_modal", locals: {report: @report}
+      = render partial: "badge_modal", locals: {report: @report, variant: "pr"}
+      = render partial: "badge_modal", locals: {report: @report, variant: "issue"}
     %br
     %br
     %p.small= @report.description

@@ -10,8 +10,8 @@ Prwatch::Application.routes.draw do
     constraints: constraints
   put 'github/:owner/:repository' => 'repositories#refresh',
     constraints: constraints
-  get 'github/:owner/:repository/badge' => 'repositories#show',
-    as: "badge",
+  get 'github/:owner/:repository/badge/:variant' => 'repositories#badge',
+    as: 'badge',
     constraints: constraints
 
   root "repositories#index"

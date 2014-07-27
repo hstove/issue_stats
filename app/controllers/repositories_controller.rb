@@ -10,9 +10,10 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    if params["format"] == "svg"
-      redirect_to @report.badge_url
-    end
+  end
+
+  def badge
+    redirect_to @report.badge_url(params[:variant])
   end
 
   def refresh

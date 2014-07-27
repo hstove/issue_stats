@@ -4,18 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :report_path
-  def report_path(report, format="html", type="path")
-    owner, repository = report.github_key.split("/")
-    opts = { owner: owner, repository: repository }
-    if format.to_s == "svg"
-      send("badge_#{type}",  opts.merge(format: "svg"))
-    else
-      send("repository_#{type}", (opts))
-    end
+  def report_path(report, type="path")
+    opts = report.param_opts
+    send("repository_#{type}", (opts))
   end
 
   helper_method :report_url
-  def report_url(report, format="html")
-    report_path(report, format, "url")
+  def report_url(report)
+    report_path(report, "url")
   end
 end
