@@ -24,16 +24,20 @@ class Report < ActiveRecord::Base
     self.issues_count = 0
     durations = []
     _self = self
-    issues do |issue|
-      durations << issue.duration
-      _self.issues_count += 1
-      tier = issue.duration_tier
-      _self.basic_distribution[tier] += 1
-      if issue.pull_request
-        _self.pr_distribution[tier] += 1
-      else
-        _self.issues_distribution[tier] += 1
+    begin
+      issues do |issue|
+        durations << issue.duration
+        _self.issues_count += 1
+        tier = issue.duration_tier
+        _self.basic_distribution[tier] += 1
+        if issue.pull_request
+          _self.pr_distribution[tier] += 1
+        else
+          _self.issues_distribution[tier] += 1
+        end
       end
+    rescue Octokit::ClientError
+      self.issues_disabled = true
     end
     self.issues_count = _self.issues_count
     self.basic_distribution = _self.basic_distribution

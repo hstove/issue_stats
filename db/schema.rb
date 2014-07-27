@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726154911) do
+ActiveRecord::Schema.define(version: 20140727055739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140726154911) do
     t.integer  "issues_count"
     t.text     "pr_distribution"
     t.text     "issues_distribution"
+    t.datetime "last_enqueued_at"
+    t.boolean  "issues_disabled"
   end
 
 end
