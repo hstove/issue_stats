@@ -20,24 +20,31 @@ class Report < ActiveRecord::Base
 
   def bootstrap
     day_split = 8.0
-
     setup_distributions
-    self.issues_count = issues.size
-    issues.each do |issue|
+    self.issues_count = 0
+    durations = []
+    _self = self
+    issues do |issue|
+      durations << issue.duration
+      _self.issues_count += 1
       tier = issue.duration_tier
-      basic_distribution[tier] += 1
+      _self.basic_distribution[tier] += 1
       if issue.pull_request
-        pr_distribution[tier] += 1
+        _self.pr_distribution[tier] += 1
       else
-        issues_distribution[tier] += 1
+        _self.issues_distribution[tier] += 1
       end
     end
-    self.median_close_time = issues.map(&:duration).median
+    self.issues_count = _self.issues_count
+    self.basic_distribution = _self.basic_distribution
+    self.pr_distribution = _self.pr_distribution
+    self.issues_distribution = _self.issues_distribution
+    self.median_close_time = durations.median
     save!
   end
 
-  def issues
-    @issues ||= Issue.find github_key, state: 'closed'
+  def issues &block
+    Issue.find(github_key, {state: 'closed'}, block)
   end
 
   def ready?

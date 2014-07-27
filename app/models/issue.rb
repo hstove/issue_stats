@@ -1,9 +1,10 @@
 class Issue < Hashie::Mash
   class << self
-    def find key, opts={}
-      issues = GH.issues key, opts
-      issues.map do |pr|
-        self.new pr.to_hash
+    def find key, opts={}, block
+      GH.skinny("repos/#{key}/issues", opts) do |issues|
+        issues.map do |pr|
+          block.call self.new pr.to_hash
+        end
       end
     end
 

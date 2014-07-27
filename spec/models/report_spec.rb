@@ -10,7 +10,7 @@ RSpec.describe Report, :type => :model do
       )
     end
     it "properly groups issues into their tier" do
-      allow_any_instance_of(Report).to receive(:issues).and_return([issue])
+      allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
       report.save
       report.reload
       first_tier = Issue.duration_tiers[0]
@@ -21,7 +21,7 @@ RSpec.describe Report, :type => :model do
 
     it "saves pull_requests into their own distribution" do
       issue.pull_request = {}
-      allow_any_instance_of(Report).to receive(:issues).and_return([issue])
+      allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
       report.save
       report.reload
       first_tier = Issue.duration_tiers[0]
