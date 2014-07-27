@@ -19,7 +19,7 @@ class Report < ActiveRecord::Base
   def bootstrap_async
     self.last_enqueued_at = DateTime.now
     save!
-    BootstrapReport.enqueue id
+    BootstrapReport.enqueue github_key
   end
 
   def bootstrap
