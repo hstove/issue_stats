@@ -5,11 +5,13 @@ Prwatch::Application.routes.draw do
 
   regex = /[\w|\.*|-]+/
   constraints = {repository: regex, owner: regex}
-  get 'github/:owner/:repository' => 'repositories#show', as: "repository",
+  get 'github/:owner/:repository' => 'repositories#show',
+    as: "repository",
     constraints: constraints
   put 'github/:owner/:repository' => 'repositories#refresh',
     constraints: constraints
-  get 'github/:owner/:repository/badge' => 'repositories#show', as: "badge",
+  get 'github/:owner/:repository/badge' => 'repositories#show',
+    as: "badge",
     constraints: constraints
 
   root "repositories#index"
