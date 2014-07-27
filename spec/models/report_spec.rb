@@ -41,6 +41,24 @@ RSpec.describe Report, :type => :model do
     end
   end
 
+  describe "#after_create" do
+    it "should fetch repo metadata", :vcr do
+      report.github_key = "rubymotion/bubblewrap"
+      allow(report).to receive(:bootstrap_async).and_return(nil)
+      report.save
+      report.reload
+      expect(report.stargazers_count).to eql 1145
+      expect(report.forks_count).to eql 207
+      expect(report.open_issues_count).to eql 17
+      expect(report.size).to eql 4200
+      description = "Cocoa wrappers and helpers for RubyMotion (Ruby for iOS "
+      description << "and OS X) - Making Cocoa APIs more Ruby like, one API at "
+      description << "a time. Fork away and send your pull requests"
+      expect(report.description).to eql description
+      expect(report.language).to eql 'Ruby'
+    end
+  end
+
   describe "#setup_distributions" do
     it "sets up blank hashes properly" do
       report.setup_distributions
