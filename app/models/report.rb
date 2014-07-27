@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
   serialize :pr_distribution, Hash
   serialize :issues_distribution, Hash
 
+  before_create :fetch_metadata
   after_create :bootstrap_async
 
   scope :ready, -> { where("median_close_time is not null") }
@@ -14,7 +15,6 @@ class Report < ActiveRecord::Base
   end
 
   def bootstrap_async
-    GH.repo github_key # ensure repo exists
     self.last_enqueued_at = DateTime.now
     save!
     BootstrapReport.enqueue id
@@ -72,5 +72,18 @@ class Report < ActiveRecord::Base
 
   def distribution(type, tier)
     send("#{type}_distribution")[tier.to_i]
+  end
+
+  def fetch_metadata
+    repository = GH.repo github_key # ensure repo exists
+    metadata_attrs.each do |attr|
+      send("#{attr}=", repository.send(attr))
+    end
+  end
+
+  private
+
+  def metadata_attrs
+    %i(open_issues_count stargazers_count forks_count size language description)
   end
 end
