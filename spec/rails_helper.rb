@@ -28,8 +28,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
 
-  # config.before{ Rails.configuration.queue.clear }
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -40,10 +38,6 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-  end
-
-  config.after do
-    Rails.configuration.queue.clear
   end
 
   config.infer_base_class_for_anonymous_controllers = false
