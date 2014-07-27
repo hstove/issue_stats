@@ -29,6 +29,6 @@ class Issue < Hashie::Mash
       if (duration <= tier) && (duration > last_tier)
         return tier
       end
-    end
+    end.last
   end
 end

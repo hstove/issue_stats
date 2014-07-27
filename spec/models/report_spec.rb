@@ -29,6 +29,16 @@ RSpec.describe Report, :type => :model do
       expect(report.distribution(:issues, first_tier)).to eql(0)
       expect(report.distribution(:pr, first_tier)).to eql(1)
     end
+
+    it "properly groups massive durations into the last tier", :vcr do
+      last_tier = Issue.duration_tiers.last
+      issue.created_at -= (last_tier * 2)
+      allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
+      report.save
+      report.reload
+      expect(report.distribution(:basic, last_tier)).to eql(1)
+      expect(report.distribution(:issues, last_tier)).to eql(1)
+    end
   end
 
   describe "#setup_distributions" do
