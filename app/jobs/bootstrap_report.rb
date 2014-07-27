@@ -1,7 +1,5 @@
 class BootstrapReport < ActiveJob::Base
-  # queue_as :my_jobs
-
-  def perform(report_id)
-    Report.find(report_id).bootstrap
+  def perform(report_key)
+    Report.from_key(report_key).bootstrap
   end
 end

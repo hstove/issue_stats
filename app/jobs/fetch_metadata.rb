@@ -1,6 +1,6 @@
 class FetchMetadata < ActiveJob::Base
-  def perform(report_id)
-    report = Report.find(report_id)
+  def perform(report_key)
+    report = Report.from_key(report_key)
     report.fetch_metadata
     report.save!
   end
