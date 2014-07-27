@@ -8,7 +8,7 @@ class Report < ActiveRecord::Base
   before_create :fetch_metadata
   after_create :bootstrap_async
 
-  scope :ready, -> { where("median_close_time is not null") }
+  scope :ready, -> { where("pr_close_time is not null") }
 
   class << self
     def from_key key
@@ -19,7 +19,7 @@ class Report < ActiveRecord::Base
   def bootstrap_async
     self.last_enqueued_at = DateTime.now
     save!
-    BootstrapReport.enqueue id
+    BootstrapReport.enqueue github_key
   end
 
   def bootstrap
@@ -27,6 +27,8 @@ class Report < ActiveRecord::Base
     setup_distributions
     self.issues_count = 0
     durations = []
+    issue_durations = []
+    pr_durations = []
     _self = self
     begin
       issues do |issue|
@@ -35,8 +37,10 @@ class Report < ActiveRecord::Base
         tier = issue.duration_tier
         _self.basic_distribution[tier] += 1
         if issue.pull_request
+          pr_durations << issue.duration
           _self.pr_distribution[tier] += 1
         else
+          issue_durations << issue.duration
           _self.issues_distribution[tier] += 1
         end
       end
@@ -48,6 +52,8 @@ class Report < ActiveRecord::Base
     self.pr_distribution = _self.pr_distribution
     self.issues_distribution = _self.issues_distribution
     self.median_close_time = durations.median
+    self.pr_close_time = pr_durations.median
+    self.issue_close_time = issue_durations.median
     self.last_enqueued_at = nil
     save!
   end
@@ -57,7 +63,7 @@ class Report < ActiveRecord::Base
   end
 
   def ready?
-    !!median_close_time
+    !!pr_close_time
   end
 
   def setup_distributions
@@ -85,28 +91,37 @@ class Report < ActiveRecord::Base
 
   def stars; stargazers_count; end
   def forks; forks_count; end
-  def duration; median_close_time; end
 
   def bytes
     size && size * 1000
   end
 
-  def duration_index
-    Issue.duration_index(median_close_time)
-  end
+  # variant is either 'issue' or 'pr'
+  def badge_url(variant)
+    duration = send("#{variant}_close_time")
+    index = Issue.duration_index(duration)
 
-  def duration_in_words
-    distance_of_time_in_words(duration)
-  end
+    if variant == 'pr'
+      word = "Pull%20Requests"
+      divisor = 3
+    else
+      word = "Issues"
+      divisor = 2
+    end
+    duration_in_words = distance_of_time_in_words(duration)
 
-  def badge_url
     colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
     colors = %w(brightgreen green yellowgreen yellow orange red)
-    color = colors[duration_index / 2] || colors.last
+    color = colors[index / divisor] || colors.last
 
-    url = "http://img.shields.io/badge/Issues%20Closed%20In-"
+    url = "http://img.shields.io/badge/#{word}%20Closed%20In-"
     url << "#{URI.escape(duration_in_words)}-#{color}.svg"
     url
+  end
+
+  def param_opts
+    owner, repository = github_key.split("/")
+    { owner: owner, repository: repository }
   end
 
   private

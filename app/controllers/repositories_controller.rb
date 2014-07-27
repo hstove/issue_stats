@@ -5,14 +5,15 @@ class RepositoriesController < ApplicationController
     @reports = Report.ready.paginate(page: params[:page])
     @reports = apply_sort(@reports, default: {
       sortable_direction: "ASC",
-      sortable_attr: "median_close_time"
+      sortable_attr: "pr_close_time"
     })
   end
 
   def show
-    if params["format"] == "svg"
-      redirect_to @report.badge_url
-    end
+  end
+
+  def badge
+    redirect_to @report.badge_url(params[:variant])
   end
 
   def refresh

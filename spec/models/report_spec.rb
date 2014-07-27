@@ -17,6 +17,7 @@ RSpec.describe Report, :type => :model do
       expect(report.distribution(:basic, first_tier)).to eql(1)
       expect(report.distribution(:issues, first_tier)).to eql(1)
       expect(report.distribution(:pr, first_tier)).to eql(0)
+      expect(report.issue_close_time).to eql(issue.duration.to_i)
     end
 
     it "saves pull_requests into their own distribution", :vcr do
@@ -28,6 +29,7 @@ RSpec.describe Report, :type => :model do
       expect(report.distribution(:basic, first_tier)).to eql(1)
       expect(report.distribution(:issues, first_tier)).to eql(0)
       expect(report.distribution(:pr, first_tier)).to eql(1)
+      expect(report.pr_close_time).to eql(issue.duration.to_i)
     end
 
     it "properly groups massive durations into the last tier", :vcr do

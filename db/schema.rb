@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727222635) do
+ActiveRecord::Schema.define(version: 20140727223156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140727222635) do
     t.integer  "forks_count"
     t.integer  "stargazers_count"
     t.integer  "size"
+    t.integer  "pr_close_time"
+    t.integer  "issue_close_time"
   end
 
 end

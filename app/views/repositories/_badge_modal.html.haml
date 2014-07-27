@@ -1,8 +1,8 @@
-- badge_link = report_url(report, "svg")
+- badge_link = badge_url(report.param_opts.merge(variant: variant))
 - url = report_url(report)
-#badge-modal-toggle{"data-toggle" => "modal", "data-target" => "#badge-modal"}
+#badge-modal-toggle.text-right{"data-toggle" => "modal", "data-target" => "#badge-modal-#{variant}"}
   = image_tag badge_link
-#badge-modal.modal.fade
+.modal.fade{id: "badge-modal-#{variant}"}
   .modal-dialog
     .modal-content
       .modal-header
