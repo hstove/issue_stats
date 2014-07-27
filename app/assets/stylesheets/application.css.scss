@@ -10,10 +10,9 @@
  *
  *= require_self
  *= require font-awesome
- *= require_tree .
+ *= require_directory .
  */
 
+@import "bootstrap/variables";
 @import "variables";
-
 @import "bootstrap";
-@import "helpers";
