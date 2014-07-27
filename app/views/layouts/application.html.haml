@@ -31,6 +31,17 @@
           .form-group
             %input#search-input.form-control{:placeholder => ":owner/:repository", :type => "text"}
           %button.btn.btn-default{:type => "submit"} Submit
+    - if current_page?("/")
+      %h3.text-center
+        Welcome to Issue Stats!
+        %br
+        %br
+        .small
+          Analyze and compare how long it takes for
+          = link_to "Github", "https://github.com", target: "_blank", class: "plain-link"
+          issues to be closed.
+      %br
+      %br
     .container
       = yield
     %br
