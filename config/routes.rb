@@ -2,8 +2,10 @@ Prwatch::Application.routes.draw do
   mount Afterparty::Engine, at: "afterparty", as: "afterparty_engine"
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  get 'github/:owner/:repository' => 'repositories#show',
+  get 'github/:owner/:repository' => 'repositories#show', as: "repository",
     constraints: {repository: /[\w|\.*]+/, owner: /[\w|\.*]+/}
+
+  root "repositories#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
