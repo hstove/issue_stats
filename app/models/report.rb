@@ -88,6 +88,10 @@ class Report < ActiveRecord::Base
     size && size * 1000
   end
 
+  def duration_tier
+    Issue.duration_index(median_close_time)
+  end
+
   private
 
   def metadata_attrs
