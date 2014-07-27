@@ -17,7 +17,7 @@ module GH
       block.call(data)
       @last_response = client.last_response
       while @last_response.rels[:next]
-        @last_response = last_response.rels[:next].get
+        @last_response = @last_response.rels[:next].get
         block.call(@last_response.data)
       end
     end
