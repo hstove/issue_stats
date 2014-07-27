@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :report_path
-  def report_path(report, type="path")
+  def report_path(report, type = "path")
     opts = report.param_opts
     send("repository_#{type}", (opts))
   end

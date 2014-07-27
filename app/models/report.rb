@@ -121,7 +121,7 @@ class Report < ActiveRecord::Base
 
   def param_opts
     owner, repository = github_key.split("/")
-    opts = { owner: owner, repository: repository }
+    { owner: owner, repository: repository }
   end
 
   private
