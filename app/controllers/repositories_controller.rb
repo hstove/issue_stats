@@ -11,7 +11,7 @@ class RepositoriesController < ApplicationController
 
   def show
     if params["format"] == "svg"
-      response.content_type = 'image/svg+xml'
+      redirect_to @report.badge_url
     end
   end
 

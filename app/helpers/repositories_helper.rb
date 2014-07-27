@@ -37,7 +37,7 @@ module RepositoriesHelper
   end
 
   def badge_color(report)
-    index = report.duration_tier
+    index = report.duration_index
     colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
     colors[index / 2] || colors.last
   end

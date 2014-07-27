@@ -1,3 +1,5 @@
+require 'action_view'
+include ActionView::Helpers::DateHelper
 class Report < ActiveRecord::Base
   serialize :basic_distribution, Hash
   serialize :pr_distribution, Hash
@@ -83,13 +85,28 @@ class Report < ActiveRecord::Base
 
   def stars; stargazers_count; end
   def forks; forks_count; end
+  def duration; median_close_time; end
 
   def bytes
     size && size * 1000
   end
 
-  def duration_tier
+  def duration_index
     Issue.duration_index(median_close_time)
+  end
+
+  def duration_in_words
+    distance_of_time_in_words(duration)
+  end
+
+  def badge_url
+    colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
+    colors = %w(brightgreen green yellowgreen yellow orange red)
+    color = colors[duration_index / 2] || colors.last
+
+    url = "http://img.shields.io/badge/Issues%20Closed%20In-"
+    url << "#{URI.escape(duration_in_words)}-#{color}.svg"
+    url
   end
 
   private
