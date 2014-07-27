@@ -3,20 +3,22 @@
     %thead
       %tr
         %th Github Repository
-        = sortable_header :median_close_time, title: "Median Time to Close an Issue",
-          link_opts: {class: "plain-link-underlined"}
-        = sortable_header :issues_count, title: "Total Issues",
-          link_opts: {class: "plain-link-underlined"}
-        %th Issues
-        %th Pull Requests
+        = sortable_header :median_close_time, title: "Median Time to Close an Issue"
+        = sortable_header :issues_count, title: "Issues"
+        = sortable_header :stargazers_count, title: "Stars"
+        = sortable_header :forks_count, title: "Forks"
+        = sortable_header :size
+        = sortable_header :language
     %tbody
       - @reports.each do |report|
         %tr
           %td= link_to report.github_key, report_path(report)
           %td= distance_of_time_in_words report.median_close_time
           %td= report.issues_count
-          %td= report.issues_distribution.values.inject(0, &:+)
-          %td= report.pr_distribution.values.inject(0, &:+)
+          %td= report.stars
+          %td= report.forks
+          %td= report.size
+          %td= report.language
 
 .text-center
   = will_paginate @reports, renderer: BootstrapPagination::Rails

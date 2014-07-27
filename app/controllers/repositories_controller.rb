@@ -13,6 +13,7 @@ class RepositoriesController < ApplicationController
   end
 
   def refresh
+    @report.fetch_metadata
     @report.bootstrap_async
     render nothing: true
   end

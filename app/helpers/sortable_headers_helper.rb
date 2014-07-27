@@ -2,8 +2,9 @@ module SortableHeadersHelper
   def sortable_header(attr, opts={})
     opts.symbolize_keys!
     opts[:attr] = attr
-    opts[:title] ||= attr.titleize
+    opts[:title] ||= attr.to_s.titleize
     opts[:link_opts] ||= {}
+    opts[:link_opts].merge class: "sortable-header"
     opts[:is_sorted] = params[:sortable_attr] == attr.to_s
     url = request.env['PATH_INFO']
     opts[:path] = Rails.application.routes.recognize_path(url)

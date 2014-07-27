@@ -18,6 +18,49 @@
   %h1.text-center Hang Tight!
   %p.text-center.text-warning We're fetching some data for this repository. Check back in a minute or two.
 
+%br
+%br
+
+.row.text-center
+  .col-md-2.col-md-offset-1
+    %h1
+      = @report.issues_count
+      .small
+        %small
+          = fa_icon "exclamation"
+          closed issues
+  .col-md-2
+    %h1
+      = @report.open_issues_count
+      .small
+        %small
+          = fa_icon "exclamation-triangle"
+          open issues
+  .col-md-2
+    %h1
+      = @report.forks
+      .small
+        %small
+          = fa_icon "code-fork"
+          forks
+  .col-md-2
+    %h1
+      = @report.stars
+      .small
+        %small
+          = fa_icon :star
+          stars
+  .col-md-2
+    %h1
+      = number_to_human_size @report.bytes
+      .small
+        %small
+          repository size
+
+
+%br
+%br
+
 .text-center
   - if @report.last_enqueued_at
     %small
@@ -36,8 +79,3 @@
     = link_to report_path(@report), method: :put, remote: true, id: "refresh-report" do
       = fa_icon "refresh"
       %span#refresh-text refresh
-
-%br
-%br
-
-

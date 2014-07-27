@@ -81,6 +81,13 @@ class Report < ActiveRecord::Base
     end
   end
 
+  def stars; stargazers_count; end
+  def forks; forks_count; end
+
+  def bytes
+    size && size * 1000
+  end
+
   private
 
   def metadata_attrs
