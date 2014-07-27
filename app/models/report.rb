@@ -77,7 +77,7 @@ class Report < ActiveRecord::Base
   def fetch_metadata
     repository = GH.repo github_key # ensure repo exists
     metadata_attrs.each do |attr|
-      self.send("#{attr}=", repository.send(attr))
+      send("#{attr}=", repository.send(attr))
     end
   end
 
