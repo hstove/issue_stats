@@ -201,6 +201,8 @@ development:
   # Do not use for production or load testing.
   developer_mode: true
 
+  log_level: warn
+
   # Enable textmate links
   # textmate: true
 
