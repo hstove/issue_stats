@@ -2,8 +2,7 @@ language: ruby
 rvm:
   - 2.0.0
 env:
-  - DB=postgresql
-  - PRWATCH_GITHUB_KEY=fakegithubapikey
+  - DB=postgresql PRWATCH_GITHUB_KEY=fakegithubapikey
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
