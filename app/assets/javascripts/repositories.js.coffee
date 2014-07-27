@@ -6,3 +6,8 @@ $ ->
     val = $('#search-input').val()
     document.location = "/github/#{val}"
     false
+
+  $('#refresh-report').on "ajax:send", ->
+    $(this).attr('disabled','disabled')
+    $('.fa-refresh').addClass('fa-spin')
+    $('#refresh-text').text("refreshing... come back soon.")

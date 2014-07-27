@@ -2,9 +2,13 @@ Prwatch::Application.routes.draw do
   mount Afterparty::Engine, at: "afterparty", as: "afterparty_engine"
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+
   regex = /[\w|\.*|-]+/
+  constraints = {repository: regex, owner: regex}
   get 'github/:owner/:repository' => 'repositories#show', as: "repository",
-    constraints: {repository: regex, owner: regex}
+    constraints: constraints
+  put 'github/:owner/:repository' => 'repositories#refresh',
+    constraints: constraints
 
   root "repositories#index"
 

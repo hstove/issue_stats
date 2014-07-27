@@ -19,10 +19,23 @@
   %p.text-center.text-warning We're fetching some data for this repository. Check back in a minute or two.
 
 .text-center
-  %small
-    Last updated
-    = time_ago_in_words @report.updated_at
-    ago
+  - if @report.last_enqueued_at
+    %small
+      = fa_icon "refresh", class: 'fa-spin'
+      %span.text-warning
+        Enqueued to be updated
+        = time_ago_in_words @report.last_enqueued_at
+        ago
+      = fa_icon "refresh", class: 'fa-spin'
+  - else
+    %small
+      Updated
+      = time_ago_in_words @report.updated_at
+      ago
+    %br
+    = link_to report_path(@report), method: :put, remote: true, id: "refresh-report" do
+      = fa_icon "refresh"
+      %span#refresh-text refresh
 
 %br
 %br

@@ -1,4 +1,6 @@
 class RepositoriesController < ApplicationController
+  before_filter :fetch_report, only: [:show, :refresh]
+
   def index
     @reports = apply_sort(Report.ready, default: {
       sortable_direction: "ASC",
@@ -7,11 +9,19 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @github_key = "#{params[:owner]}/#{params[:repository]}"
-    @report = Report.from_key @github_key
+  end
+
+  def refresh
+    @report.bootstrap_async
+    render nothing: true
   end
 
   private
+
+  def fetch_report
+    @github_key = "#{params[:owner]}/#{params[:repository]}"
+    @report = Report.from_key @github_key
+  end
 
   def apply_sort(relation, opts={})
     (default = opts[:default] || {}).stringify_keys

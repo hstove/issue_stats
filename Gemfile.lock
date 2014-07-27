@@ -160,6 +160,9 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    guard-sidekiq (0.0.11)
+      guard (>= 1.1)
+      sidekiq
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -429,6 +432,7 @@ DEPENDENCIES
   guard-livereload
   guard-rails
   guard-rspec
+  guard-sidekiq
   haml-rails
   has_scope
   hashie

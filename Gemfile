@@ -110,4 +110,5 @@ group :test, :development do
   gem "vcr"
   gem 'coveralls', require: false
   gem "simplecov", require: false
+  gem "guard-sidekiq"
 end

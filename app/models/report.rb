@@ -15,6 +15,8 @@ class Report < ActiveRecord::Base
 
   def bootstrap_async
     GH.repo github_key # ensure repo exists
+    self.last_enqueued_at = DateTime.now
+    save!
     BootstrapReport.enqueue id
   end
 
@@ -44,6 +46,7 @@ class Report < ActiveRecord::Base
     self.pr_distribution = _self.pr_distribution
     self.issues_distribution = _self.issues_distribution
     self.median_close_time = durations.median
+    self.last_enqueued_at = nil
     save!
   end
 
