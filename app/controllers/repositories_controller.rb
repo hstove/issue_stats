@@ -1,6 +1,6 @@
 class RepositoriesController < ApplicationController
   def index
-    @reports = apply_sort(Report, default: {
+    @reports = apply_sort(Report.ready, default: {
       sortable_direction: "ASC",
       sortable_attr: "median_close_time"
     })

@@ -5,6 +5,8 @@ class Report < ActiveRecord::Base
 
   after_create :bootstrap_async
 
+  scope :ready, -> { where("median_close_time is not null") }
+
   class << self
     def from_key key
       report = self.find_or_create_by(github_key: key)
@@ -39,7 +41,7 @@ class Report < ActiveRecord::Base
   end
 
   def ready?
-    !!issues_count
+    !!median_close_time
   end
 
   def setup_distributions
