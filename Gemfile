@@ -84,6 +84,8 @@ gem "sidekiq"
 gem "activejob", require: "active_job"
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+gem 'github-markup'
+gem 'newrelic_rpm'
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"

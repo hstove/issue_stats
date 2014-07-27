@@ -143,6 +143,8 @@ GEM
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    github-markup (1.2.1)
+      posix-spawn (~> 0.3.8)
     google-analytics-rails (0.0.6)
     gravatar_image_tag (1.2.0)
     guard (2.6.1)
@@ -222,6 +224,7 @@ GEM
     multipart-post (2.0.0)
     nested_form (0.3.2)
     netrc (0.7.7)
+    newrelic_rpm (3.7.3.204)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     octokit (3.2.0)
@@ -232,6 +235,7 @@ GEM
       activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    posix-spawn (0.3.8)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -429,6 +433,7 @@ DEPENDENCIES
   factory_girl_rails
   filepicker-rails
   font-awesome-rails
+  github-markup
   google-analytics-rails
   gravatar_image_tag
   guard
@@ -451,6 +456,7 @@ DEPENDENCIES
   mixpanel
   mocha
   nested_form
+  newrelic_rpm
   nokogiri
   octokit
   paper_trail

@@ -14,6 +14,7 @@
     = csrf_meta_tag
     = favicon_link_tag
     = yield(:head)
+    = analytics_init if Rails.env.production?
 
   %body
     .navbar.navbar-default{role: "navigation"}
@@ -45,9 +46,9 @@
     .container
       = yield
     %br
-    %br
     .footer.text-center
-      ©
+      Built by
       = link_to "Hank Stoever", "http://hankstoever.com", target: "_blank", class: "plain-link-underlined"
       = link_to fa_icon(:github), "https://github.com/hstove"
       = link_to fa_icon(:twitter), "https://twitter.com/heynky"
+    %br
