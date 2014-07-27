@@ -6,6 +6,7 @@ task bootstrap_all: :environment do
 end
 
 task metadata_all: :environment do
+  require 'jobs/fetch_metadata'
   Report.all.each do |report|
     puts "Fetching Metadata for `#{report.github_key}`"
     FetchMetadata.enqueue report.id
