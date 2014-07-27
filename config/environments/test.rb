@@ -35,4 +35,5 @@ Prwatch::Application.configure do
   config.active_support.deprecation = :stderr
 
   ActiveJob::Base.queue_adapter = :inline
+  config.cache_store = :null_store
 end

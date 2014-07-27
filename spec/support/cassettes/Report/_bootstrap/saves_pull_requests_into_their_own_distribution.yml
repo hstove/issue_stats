@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/hstove/rbtc_arbitrage
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sun, 27 Jul 2014 07:12:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4974'
+      X-Ratelimit-Reset:
+      - '1406448199'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 25 Jul 2014 09:07:54 GMT
+      Etag:
+      - '"0a7c2a7d3f05461794c3fb8bb6c97b63"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - 62E81C51:7DF5:3578551:53D4A651
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 3061975e1f37121b3751604ad153c687
+    body:
+      encoding: UTF-8
+      string: '{"id":11266575,"name":"rbtc_arbitrage","full_name":"hstove/rbtc_arbitrage","owner":{"login":"hstove","id":1109058,"avatar_url":"https://avatars.githubusercontent.com/u/1109058?","gravatar_id":"73719c8eb97a63acd87f2f0a918a5005","url":"https://api.github.com/users/hstove","html_url":"https://github.com/hstove","followers_url":"https://api.github.com/users/hstove/followers","following_url":"https://api.github.com/users/hstove/following{/other_user}","gists_url":"https://api.github.com/users/hstove/gists{/gist_id}","starred_url":"https://api.github.com/users/hstove/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hstove/subscriptions","organizations_url":"https://api.github.com/users/hstove/orgs","repos_url":"https://api.github.com/users/hstove/repos","events_url":"https://api.github.com/users/hstove/events{/privacy}","received_events_url":"https://api.github.com/users/hstove/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/hstove/rbtc_arbitrage","description":"A
+        gem for automating arbitrage between Bitcoin exchanges.","fork":false,"url":"https://api.github.com/repos/hstove/rbtc_arbitrage","forks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/forks","keys_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/keys{/key_id}","collaborators_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/teams","hooks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/hooks","issue_events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/events{/number}","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/events","assignees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/assignees{/user}","branches_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/branches{/branch}","tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/tags","blobs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/refs{/sha}","trees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/trees{/sha}","statuses_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/statuses/{sha}","languages_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/languages","stargazers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/stargazers","contributors_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contributors","subscribers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscribers","subscription_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscription","commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/commits{/sha}","git_commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/commits{/sha}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/comments{/number}","issue_comment_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/comments/{number}","contents_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contents/{+path}","compare_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/compare/{base}...{head}","merges_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/merges","archive_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/downloads","issues_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues{/number}","pulls_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls{/number}","milestones_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/milestones{/number}","notifications_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/labels{/name}","releases_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/releases{/id}","created_at":"2013-07-08T22:00:27Z","updated_at":"2014-07-25T09:07:54Z","pushed_at":"2014-07-25T17:56:02Z","git_url":"git://github.com/hstove/rbtc_arbitrage.git","ssh_url":"git@github.com:hstove/rbtc_arbitrage.git","clone_url":"https://github.com/hstove/rbtc_arbitrage.git","svn_url":"https://github.com/hstove/rbtc_arbitrage","homepage":"","size":710,"stargazers_count":129,"watchers_count":129,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":52,"mirror_url":null,"open_issues_count":5,"forks":52,"open_issues":5,"watchers":129,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"network_count":52,"subscribers_count":38}'
+    http_version: 
+  recorded_at: Sun, 27 Jul 2014 07:12:16 GMT
+recorded_with: VCR 2.8.0

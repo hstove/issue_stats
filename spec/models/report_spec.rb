@@ -9,7 +9,7 @@ RSpec.describe Report, :type => :model do
         closed_at: 10.minutes.ago
       )
     end
-    it "properly groups issues into their tier" do
+    it "properly groups issues into their tier", :vcr do
       allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
       report.save
       report.reload
@@ -19,7 +19,7 @@ RSpec.describe Report, :type => :model do
       expect(report.distribution(:pr, first_tier)).to eql(0)
     end
 
-    it "saves pull_requests into their own distribution" do
+    it "saves pull_requests into their own distribution", :vcr do
       issue.pull_request = {}
       allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
       report.save
