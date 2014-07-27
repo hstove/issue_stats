@@ -47,9 +47,11 @@ $body-bg:               $gray-darker;
 $text-color:            #fff;
 
 //** Global textual link color.
-$link-color:            desaturate(lighten($brand-success, 10%),10%);
+$link-color:            desaturate(lighten($brand-success, 20%),40%);
+// $link-color:            $text-color;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $link-color;
+$link-hover-color:      darken($link-color,10);
+// $link-decoration: underline;
 
 
 //== Typography
