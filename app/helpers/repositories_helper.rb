@@ -76,12 +76,12 @@ module RepositoriesHelper
 
   def language_chart
     reports = Report.ready
-    pr_languages, issues_languages = Hash.new(), Hash.new()
+    pr_languages, issues_languages = Hash.new, Hash.new
     reports.each do |report|
       key = report.language || "No Language"
       issues_languages[key] ||= []
       pr_languages[key] ||= []
-      issues_languages[key] << report.pr_close_time
+      issues_languages[key] << report.issue_close_time
       pr_languages[key] << report.pr_close_time
     end
 
@@ -94,9 +94,27 @@ module RepositoriesHelper
       f.title(:text => "Responsiveness by Language")
       f.series name: "Pull Requests", data: pr_values
       f.series name: "Issues", data: issues_values
+      f.series(
+        name: "Number of Repositories Analyzed",
+        data: pr_languages.map{|pair| pair.last.size},
+        yAxis: 1,
+        stack: 1,
+        visible: false,
+      )
       f.xAxis categories: pr_languages.map(&:first), labels: {rotation: -45, align: 'right'}
-      f.yAxis type: 'logarithmic', title: { text: "Seconds to Close an Issue" }
-      f.legend enabled: false
+      f.yAxis([
+        {
+          type: 'logarithmic',
+          title: {
+            text: "Seconds to Close an Issue"
+          }
+        },{
+          type: 'logarithmic',
+          opposite: true,
+          title: { text: "Number of Repositories Analyzed" }
+        }
+      ])
+      f.legend(align: 'right', verticalAlign: 'top', floating: true)
       f.chart defaultSeriesType: "column"
       f.labels style: {"font-size" => "10px"}
       f.plotOptions column: { stacking: 'normal' }
