@@ -1,4 +1,5 @@
 - badge_link = badge_url(report.param_opts.merge(variant: variant))
+- flat_badge = badge_link + "?style=flat"
 - url = report_url(report)
 #badge-modal-toggle.text-right{"data-toggle" => "modal", "data-target" => "#badge-modal-#{variant}"}
   = image_tag badge_link
@@ -12,27 +13,37 @@
         %h4.modal-title
           Add a badge to your README.
       .modal-body
-        .text-center
-          = image_tag badge_link
-        %h4 HTML
-        %p
-          - value = "<a href=\"#{url}\"><img src=\"#{badge_link}\" /></a>"
-          %input.form-control{type: "text", value: value}
+        %ul.nav.nav-pills
+          %li.active
+            = link_to "Regular", "#badge-tab-#{variant}-0", role: "tab", data: {toggle: "tab"}
+          %li
+            = link_to "Flat", "#badge-tab-#{variant}-1", role: "tab", data: {toggle: "tab"}
 
-        %h4 Markdown
-        %p
-          - value = "[![Issue Stats](#{badge_link})](#{url})"
-          %input.form-control{type: "text", value: value}
+        .tab-content
+          - [badge_link, flat_badge].each_with_index do |link, index|
+            - clazz = index == 0 ? "tab-pane active" : "tab-pane"
+            %div{id: "badge-tab-#{variant}-#{index}", class: clazz}
+              .text-center
+                = image_tag link
+              %h4 HTML
+              %p
+                - value = "<a href=\"#{url}\"><img src=\"#{link}\" /></a>"
+                %input.form-control{type: "text", value: value}
 
-        %h4 Textile
-        %p
-          - value = "\"!#{badge_link}!\":{url}"
-          %input.form-control{type: "text", value: value}
+              %h4 Markdown
+              %p
+                - value = "[![Issue Stats](#{link})](#{url})"
+                %input.form-control{type: "text", value: value}
 
-        %h4 RDOC
-        %p
-          - value = "{<img src=\"#{badge_link}\" />}[#{url}]"
-          %input.form-control{type: "text", value: value}
+              %h4 Textile
+              %p
+                - value = "\"!#{link}!\":{url}"
+                %input.form-control{type: "text", value: value}
+
+              %h4 RDOC
+              %p
+                - value = "{<img src=\"#{link}\" />}[#{url}]"
+                %input.form-control{type: "text", value: value}
 
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close

@@ -13,7 +13,7 @@ class RepositoriesController < ApplicationController
   end
 
   def badge
-    redirect_to @report.badge_url(params[:variant])
+    redirect_to @report.badge_url(params[:variant], params[:style])
   end
 
   def refresh

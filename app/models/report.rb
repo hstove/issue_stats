@@ -97,7 +97,7 @@ class Report < ActiveRecord::Base
   end
 
   # variant is either 'issue' or 'pr'
-  def badge_url(variant)
+  def badge_url(variant, style = nil)
     duration = send("#{variant}_close_time")
     index = Issue.duration_index(duration)
 
@@ -116,6 +116,7 @@ class Report < ActiveRecord::Base
 
     url = "http://img.shields.io/badge/#{word}%20Closed%20In-"
     url << "#{URI.escape(duration_in_words)}-#{color}.svg"
+    url << "?style=#{style}" if style
     url
   end
 
