@@ -18,12 +18,13 @@
 
 %br
 
-.row
-  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", stars: "Number of Stars"})
-  = analysis_chart({issue_close_time: "Seconds to Close an Issue", stars: "Number of Stars"})
-  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", issue_close_time: "Seconds to Close an Issue"})
-  = analysis_chart({forks: "Forks", size: "Size (KB)"})
-  = analysis_chart({size: "Size (KB)", stars: "Stars"})
-  = analysis_chart({size: "Size (KB)", pr_close_time: "Seconds to Close a Pull Request"})
-  = analysis_chart({forks: "Forks", pr_close_time: "Seconds to Close a Pull Request"})
-  = analysis_chart({forks: "Forks", issue_close_time: "Seconds to Close an Issue"})
+= cache "analysis-section", expires_in: 12.hours do
+  .row
+    = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", stars: "Number of Stars"})
+    = analysis_chart({issue_close_time: "Seconds to Close an Issue", stars: "Number of Stars"})
+    = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", issue_close_time: "Seconds to Close an Issue"})
+    = analysis_chart({forks: "Forks", size: "Size (KB)"})
+    = analysis_chart({size: "Size (KB)", stars: "Stars"})
+    = analysis_chart({size: "Size (KB)", pr_close_time: "Seconds to Close a Pull Request"})
+    = analysis_chart({forks: "Forks", pr_close_time: "Seconds to Close a Pull Request"})
+    = analysis_chart({forks: "Forks", issue_close_time: "Seconds to Close an Issue"})
