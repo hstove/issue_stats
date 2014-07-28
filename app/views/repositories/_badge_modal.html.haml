@@ -2,7 +2,7 @@
 - flat_badge = badge_link + "?style=flat"
 - url = report_url(report)
 #badge-modal-toggle.text-right{"data-toggle" => "modal", "data-target" => "#badge-modal-#{variant}"}
-  = image_tag badge_link
+  = image_tag flat_badge
 .modal.fade{id: "badge-modal-#{variant}"}
   .modal-dialog
     .modal-content
