@@ -3,7 +3,6 @@
     %thead
       %tr
         %th Github Repository
-        -# = sortable_header :median_close_time, title: "Median Time to Close an Issue"
         = sortable_header :pr_close_time, title: "Time to Close Pull Requests"
         = sortable_header :issue_close_time, title: "Time to Close Issues"
         = sortable_header :issues_count, title: "Closed Issues"
@@ -15,7 +14,6 @@
       - @reports.each do |report|
         %tr
           %td= link_to report.github_key, report_path(report)
-          -# %td= distance_of_time_in_words report.median_close_time
           %td= distance_of_time_in_words report.pr_close_time
           %td= distance_of_time_in_words report.issue_close_time
           %td= report.issues_count

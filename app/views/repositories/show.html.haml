@@ -65,6 +65,11 @@
 %br
 %br
 
+#markdown-container.well
+  .text-center
+    %h1
+      = fa_icon "refresh", text: "Fetching README", class: "fa-spin"
+
 .text-center
   - if @report.last_enqueued_at
     %small
@@ -83,3 +88,6 @@
     = link_to report_path(@report), method: :put, remote: true, id: "refresh-report" do
       = fa_icon "refresh"
       %span#refresh-text refresh
+
+:javascript
+  fetchReadme(#{raw @report.to_json})
