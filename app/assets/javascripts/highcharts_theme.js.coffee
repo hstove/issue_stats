@@ -123,7 +123,7 @@ Highcharts.theme =
     scatter:
       tooltip:
         headerFormat: ''
-        pointFormat: '{series.name}: <b>{point.x}</b><br>{series.color}: <b>{point.y}</b><br>'
+        pointFormat: '<b>{point.name}</b><br>{series.name}: <b>{point.x}</b><br>{series.color}: <b>{point.y}</b><br>'
   #   series:
   #     nullColor: "#444444"
   #

@@ -48,11 +48,13 @@ module RepositoriesHelper
 
     reports = Report.ready
     data = reports.map do |report|
-      [report.send(keys[0]), report.send(keys[1])]
+      { x: report.send(keys[0]), y: report.send(keys[1]), name: report.github_key }
     end
 
+    x = data.map { |d| d[:x] }
+    y = data.map { |d| d[:y] }
     lineFit = LineFit.new
-    lineFit.setData(data.map(&:first), data.map(&:last))
+    lineFit.setData(x, y)
 
     id = values.join(" vs. ")
     chart = LazyHighCharts::HighChart.new('graph') do |f|
