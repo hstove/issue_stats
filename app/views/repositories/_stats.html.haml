@@ -1,0 +1,35 @@
+.row.text-center
+  .col-md-2.col-md-offset-1
+    %h1
+      = @report.issues_count
+      .small
+        %small
+          = fa_icon "exclamation"
+          closed issues
+  .col-md-2
+    %h1
+      = @report.open_issues_count
+      .small
+        %small
+          = fa_icon "exclamation-triangle"
+          open issues
+  .col-md-2
+    %h1
+      = @report.forks
+      .small
+        %small
+          = fa_icon "code-fork"
+          forks
+  .col-md-2
+    %h1
+      = @report.stars
+      .small
+        %small
+          = fa_icon :star
+          stars
+  .col-md-2
+    %h1
+      = number_to_human_size @report.bytes
+      .small
+        %small
+          repository size

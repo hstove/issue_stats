@@ -14,61 +14,30 @@
 
 %br
 
-- if @report.ready?
-  = response_distribution_chart @report
-
-- else
+- if !@report.ready?
   = debug @report if Rails.env.development?
   %h1.text-center Hang Tight!
   %p.text-center.text-warning We're fetching some data for this repository. Check back in a minute or two.
 
-%br
-%br
+- else
 
-.row.text-center
-  .col-md-2.col-md-offset-1
-    %h1
-      = @report.issues_count
-      .small
-        %small
-          = fa_icon "exclamation"
-          closed issues
-  .col-md-2
-    %h1
-      = @report.open_issues_count
-      .small
-        %small
-          = fa_icon "exclamation-triangle"
-          open issues
-  .col-md-2
-    %h1
-      = @report.forks
-      .small
-        %small
-          = fa_icon "code-fork"
-          forks
-  .col-md-2
-    %h1
-      = @report.stars
-      .small
-        %small
-          = fa_icon :star
-          stars
-  .col-md-2
-    %h1
-      = number_to_human_size @report.bytes
-      .small
-        %small
-          repository size
+  = render partial: "stats", locals: {report: @report}
 
+  %br
 
-%br
-%br
+  .well
+    = response_distribution_chart @report
 
-#markdown-container.well
-  .text-center
-    %h1
-      = fa_icon "refresh", text: "Fetching README", class: "fa-spin"
+  %br
+  %br
+
+  #markdown-container.well
+    .text-center
+      %h1
+        = fa_icon "refresh", text: "Fetching README", class: "fa-spin"
+
+  :javascript
+    fetchReadme(#{raw @report.to_json})
 
 .text-center
   - if @report.last_enqueued_at
@@ -89,5 +58,3 @@
       = fa_icon "refresh"
       %span#refresh-text refresh
 
-:javascript
-  fetchReadme(#{raw @report.to_json})
