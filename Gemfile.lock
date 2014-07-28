@@ -71,6 +71,8 @@ GEM
       sass (~> 3.2)
     bootstrap-wysihtml5-rails (0.3.2.100)
       railties (>= 3.0)
+    bootswatch-rails (3.2.0)
+      railties (>= 3.1)
     builder (3.2.2)
     cancan (1.6.10)
     capybara (2.4.1)
@@ -198,6 +200,7 @@ GEM
     lazy_high_charts (1.4.3)
       bundler (>= 1.0)
       hash-deep-merge
+    linefit (0.3.2)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -417,6 +420,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
   bootstrap-wysihtml5-rails
+  bootswatch-rails
   cancan
   capybara
   capybara-webkit
@@ -450,6 +454,7 @@ DEPENDENCIES
   jquery-turbolinks
   launchy
   lazy_high_charts
+  linefit
   listen
   lorem-ipsum
   memcachier

@@ -86,6 +86,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'github-markup'
 gem 'newrelic_rpm'
+gem 'linefit'
+gem 'bootswatch-rails'
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"

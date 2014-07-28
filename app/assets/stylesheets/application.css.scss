@@ -13,6 +13,8 @@
  *= require_directory .
  */
 
-@import "bootstrap/variables";
+@import-once "bootstrap/variables";
+@import "bootswatch/lumen/variables";
 @import "variables";
 @import "bootstrap";
+@import "bootswatch/lumen/bootswatch";
