@@ -8,7 +8,7 @@ class Report < ActiveRecord::Base
   before_create :fetch_metadata
   after_create :bootstrap_async
 
-  scope :ready, -> { where("pr_close_time is not null and issues_count > 25") }
+  scope :ready, -> { where("pr_close_time > 0 and issue_close_time > 0 and issues_count > 25") }
 
   class << self
     def from_key key
