@@ -14,6 +14,8 @@ Prwatch::Application.routes.draw do
     as: 'badge',
     constraints: constraints
 
+  get 'analysis' => "repositories#analysis", as: :analysis
+
   root "repositories#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

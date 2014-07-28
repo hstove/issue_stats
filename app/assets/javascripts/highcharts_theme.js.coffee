@@ -119,7 +119,11 @@ Highcharts.theme =
   #   style:
   #     color: "#FFF"
   #
-  # plotOptions:
+  plotOptions:
+    scatter:
+      tooltip:
+        headerFormat: ''
+        pointFormat: '{series.name}: <b>{point.x}</b><br>{series.color}: <b>{point.y}</b><br>'
   #   series:
   #     nullColor: "#444444"
   #

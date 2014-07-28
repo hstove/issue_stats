@@ -1,0 +1,29 @@
+%h1.text-center Testing for Correlation
+
+%br
+
+%p.lead
+  - r2 = "r<sup>2</sup>".html_safe
+  While creating this application, I was curious about whether various metadata
+  about a project was related to the time it would take to close a Github issue.
+  I built these charts to visualize the relationship between different attributes,
+  and I display the calculated
+  = r2
+  underneath each chart. For each of these charts, the
+  = r2
+  is below
+  = succeed "," do
+    %code 0.1
+  meaning there is no linear relationship between any of these attributes.
+
+%br
+
+.row
+  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", stars: "Number of Stars"})
+  = analysis_chart({issue_close_time: "Seconds to Close an Issue", stars: "Number of Stars"})
+  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", issue_close_time: "Seconds to Close an Issue"})
+  = analysis_chart({forks: "Forks", size: "Size (KB)"})
+  = analysis_chart({size: "Size (KB)", stars: "Stars"})
+  = analysis_chart({size: "Size (KB)", pr_close_time: "Seconds to Close a Pull Request"})
+  = analysis_chart({forks: "Forks", pr_close_time: "Seconds to Close a Pull Request"})
+  = analysis_chart({forks: "Forks", issue_close_time: "Seconds to Close an Issue"})

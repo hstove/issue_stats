@@ -41,4 +41,34 @@ module RepositoriesHelper
     colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
     colors[index / 2] || colors.last
   end
+
+  def analysis_chart attrs
+    keys = attrs.keys
+    values = attrs.values
+
+    reports = Report.ready
+    data = reports.map do |report|
+      [report.send(keys[0]), report.send(keys[1])]
+    end
+
+    lineFit = LineFit.new
+    lineFit.setData(data.map(&:first), data.map(&:last))
+
+    id = values.join(" vs. ")
+    chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart type: "scatter", zoomType: "xy"
+      f.title text: id
+      f.series name: values[0], color: values[1], data: data
+      f.xAxis title: {text: values[0]}, type: 'logarithmic'
+      f.yAxis title: {text: values[1]}, type: "logarithmic"
+      f.legend enabled: false
+    end
+
+    content_tag :div, class: "analysis-chart well col-md-6" do
+      html = high_chart(id.parameterize, chart)
+      html += content_tag :p, class: 'text-center' do
+        "r<sup>2</sup>: #{lineFit.rSquared.round(4)}".html_safe
+      end
+    end
+  end
 end
