@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require highcharts/highcharts
 //= require bootstrap
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .

@@ -88,6 +88,7 @@ gem 'github-markup'
 gem 'newrelic_rpm'
 gem 'linefit'
 gem 'bootswatch-rails'
+gem 'nprogress-rails'
 group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
