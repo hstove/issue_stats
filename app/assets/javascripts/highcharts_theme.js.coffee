@@ -17,7 +17,7 @@ Highcharts.theme =
   #   "#aaeeee"
   # ]
   chart:
-    backgroundColor: "#F5F5F5"
+    backgroundColor: "#FAFAFA"
   #     linearGradient:
   #       x1: 0
   #       y1: 0

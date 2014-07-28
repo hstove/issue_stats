@@ -73,4 +73,35 @@ module RepositoriesHelper
       end
     end
   end
+
+  def language_chart
+    reports = Report.ready
+    pr_languages, issues_languages = Hash.new(), Hash.new()
+    reports.each do |report|
+      key = report.language || "No Language"
+      issues_languages[key] ||= []
+      pr_languages[key] ||= []
+      issues_languages[key] << report.pr_close_time
+      pr_languages[key] << report.pr_close_time
+    end
+
+    pr_languages = pr_languages.sort_by { |k,v| v.median }
+    pr_values = pr_languages.map { |pair| pair.last.median }
+    issues_languages = issues_languages.sort_by { |k,v| v.median }
+    issues_values = issues_languages.map { |pair| pair.last.median }
+
+    chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(:text => "Responsiveness by Language")
+      f.series name: "Pull Requests", data: pr_values
+      f.series name: "Issues", data: issues_values
+      f.xAxis categories: pr_languages.map(&:first), labels: {rotation: -45, align: 'right'}
+      f.yAxis type: 'logarithmic', title: { text: "Seconds to Close an Issue" }
+      f.legend enabled: false
+      f.chart defaultSeriesType: "column"
+      f.labels style: {"font-size" => "10px"}
+      f.plotOptions column: { stacking: 'normal' }
+    end
+
+    high_chart "language-chart", chart
+  end
 end

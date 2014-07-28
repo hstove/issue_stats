@@ -50,11 +50,10 @@
     %hr
     %footer.footer.text-center
       %p.small
-        Curious how certain fields
-        = link_to "correlate", analysis_path
-        with how issue responsiveness?
-        Hint -
-        %em they don't.
+        Looking for
+        = succeed "?" do
+          = link_to "more interesting graphs and analysis", analysis_path
+
       Built by
       = link_to "Hank Stoever", "http://hankstoever.com", target: "_blank", class: "plain-link-underlined"
       = link_to fa_icon(:github), "https://github.com/hstove"
