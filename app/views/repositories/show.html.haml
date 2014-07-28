@@ -1,3 +1,4 @@
+- content_for(:title) { @github_key }
 %h2
   = link_to "https://github.com/#{@github_key}", class: "plain-link", target: "_blank" do
     = fa_icon "github", text: @github_key
