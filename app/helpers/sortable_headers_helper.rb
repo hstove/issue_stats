@@ -15,8 +15,8 @@ module SortableHeadersHelper
       (opposite = sort_symbols.keys).delete(current_direction)
       opts[:path][:sortable_direction] = opposite[0]
     else
-      opts[:path][:sortable_direction] = "DESC"
-      opts[:sort_symbol] = sort_symbols["DESC"]
+      opts[:path][:sortable_direction] = "ASC"
+      opts[:sort_symbol] = sort_symbols["ASC"]
     end
 
     render partial: "sortable/header", locals: opts
