@@ -2,7 +2,13 @@ class RepositoriesController < ApplicationController
   before_filter :fetch_report, only: [:show, :refresh, :badge]
 
   rescue_from Octokit::ClientError do
-    render "not_found"
+    if params["action"] == "badge"
+      url = "http://img.shields.io/badge/Issue_Stats-Not_Found-lightgrey.svg"
+      url << "?style=#{params[:style]}" if params[:style]
+      redirect_to url
+    else
+      render "not_found"
+    end
   end
 
   def index
