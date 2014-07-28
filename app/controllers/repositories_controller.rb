@@ -1,6 +1,10 @@
 class RepositoriesController < ApplicationController
   before_filter :fetch_report, only: [:show, :refresh, :badge]
 
+  rescue_from Octokit::ClientError do
+    render "not_found"
+  end
+
   def index
     @reports = Report.ready.paginate(page: params[:page])
     @reports = apply_sort(@reports, default: {
