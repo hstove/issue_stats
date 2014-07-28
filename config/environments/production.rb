@@ -13,6 +13,10 @@ Prwatch::Application.configure do
     :enable_starttls_auto => true
   }
 
+  config.action_mailer.default_url_options = {
+    :host => "issuestats.com"
+  }
+
   config.middleware.use ExceptionNotification::Rack,
     :ignore_crawlers => %w{Googlebot bingbot googlebot YandexBot bot},
     :email => {

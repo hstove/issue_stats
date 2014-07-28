@@ -23,3 +23,7 @@ $ ->
     $(this).attr('disabled','disabled')
     $('.fa-refresh').addClass('fa-spin')
     $('#refresh-text').text("refreshing... come back soon.")
+  $('#welcome-alert').on 'closed.bs.alert', ->
+    date = new Date(2035,0)
+    document.cookie = "has_seen_welcome=true; expires=#{date}; path=/"
+    true

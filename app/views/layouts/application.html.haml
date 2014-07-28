@@ -25,37 +25,42 @@
           -#   %span.icon-bar
           -#   %span.icon-bar
           -#   %span.icon-bar
+          %a.na
           %a.navbar-brand{href: "/"}
-            = fa_icon :github
+            = fa_icon(:github)
             Issue Stats
         %form#search.navbar-form.navbar-right{:role => "search"}
           .form-group.input-group
             .input-group-addon github.com/
             %input#search-input.form-control{:placeholder => ":owner/:repository", :type => "text"}
           %button.btn.btn-default{:type => "submit"} Submit
-    - if current_page?("/")
-      %h3.text-center
-        Welcome to Issue Stats!
+    - unless cookies[:has_seen_welcome]
+      #welcome-alert.alert.alert-info.text-center
+        %button.close{"data-dismiss" => "alert", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h3
+          Welcome to
+          = succeed "!" do
+            %strong Issue Stats
         %br
-        %br
-        .small
+        %p.lead
           Analyze and compare how long it takes for
           = link_to "Github", "https://github.com", target: "_blank", class: "plain-link"
           issues to be closed.
-      %br
-      %br
+        %br
     .container
       = yield
     %br
     %hr
     %footer.footer.text-center
       %p.small
-        Looking for
+        Looking for more
         = succeed "?" do
-          = link_to "more interesting graphs and analysis", analysis_path
+          = link_to "interesting graphs and analysis", analysis_path
 
       Built by
       = link_to "Hank Stoever", "http://hankstoever.com", target: "_blank", class: "plain-link-underlined"
-      = link_to fa_icon(:github), "https://github.com/hstove"
+      = link_to fa_icon(:github), "https://github.com/hstove/issue_stats"
       = link_to fa_icon(:twitter), "https://twitter.com/heynky"
     %br

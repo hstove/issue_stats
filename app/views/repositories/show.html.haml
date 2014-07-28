@@ -9,8 +9,10 @@
       = render partial: "badge_modal", locals: {report: @report, variant: "pr"}
       = render partial: "badge_modal", locals: {report: @report, variant: "issue"}
     %br
-    %br
-    %p.small= @report.description
+    - if @report.description
+      %br
+      %br
+      %p.small= @report.description
 
 %br
 
