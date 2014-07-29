@@ -75,7 +75,7 @@ module RepositoriesHelper
   end
 
   def language_chart
-    reports = Report.ready.with_issues
+    reports = Report.ready
     pr_languages, issues_languages = Hash.new, Hash.new
     reports.each do |report|
       key = report.language || "No Language"
