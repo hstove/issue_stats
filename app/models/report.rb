@@ -10,7 +10,8 @@ class Report < ActiveRecord::Base
 
   NO_LANGUAGE_KEY = "__no_language__"
 
-  scope :ready, -> { where("pr_close_time > 0 and issue_close_time > 0 and issues_count > 25") }
+  scope :ready, -> { where("pr_close_time > 0 and issue_close_time > 0") }
+  scope :with_issues, -> { where("issues_count > 25") }
   scope :language, -> language {
     if language == NO_LANGUAGE_KEY
       where("language is null")

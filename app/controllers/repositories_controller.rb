@@ -14,6 +14,7 @@ class RepositoriesController < ApplicationController
 
   def index
     @reports = apply_scopes(Report).ready.paginate(page: params[:page])
+    @reports = @reports.with_issues unless params[:language]
     @reports = apply_sort(@reports, default: {
       sortable_direction: "ASC",
       sortable_attr: "pr_close_time"

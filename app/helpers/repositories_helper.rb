@@ -46,7 +46,7 @@ module RepositoriesHelper
     keys = attrs.keys
     values = attrs.values
 
-    reports = Report.ready
+    reports = Report.ready.with_issues
     data = reports.map do |report|
       { x: report.send(keys[0]), y: report.send(keys[1]), name: report.github_key }
     end
@@ -75,7 +75,7 @@ module RepositoriesHelper
   end
 
   def language_chart
-    reports = Report.ready
+    reports = Report.ready.with_issues
     pr_languages, issues_languages = Hash.new, Hash.new
     reports.each do |report|
       key = report.language || "No Language"
