@@ -8,8 +8,16 @@ class Report < ActiveRecord::Base
   before_create :fetch_metadata
   after_create :bootstrap_async
 
+  NO_LANGUAGE_KEY = "__no_language__"
+
   scope :ready, -> { where("pr_close_time > 0 and issue_close_time > 0 and issues_count > 25") }
-  scope :language, -> language { where("lower(language) = ?", language.downcase) }
+  scope :language, -> language {
+    if language == NO_LANGUAGE_KEY
+      where("language is null")
+    else
+      where("lower(language) = ?", language.downcase)
+    end
+  }
 
   class << self
     def from_key key

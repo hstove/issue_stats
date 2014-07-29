@@ -1,11 +1,14 @@
 .dropdown
-  %a#language-select.dropdown-toggle{"data-toggle" => "dropdown", type: "button", href: "#"}
+  %a#language-select.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
     Select Language
     %span.caret
   %ul.dropdown-menu{"aria-labelledby" => "language-select", role: "menu"}
-    %li{role: "presentation"}
-      %a{href: root_path, role: "menuitem", tabindex: "-1"} All Languages
-    %li.divider{role: "presentation"}
+    %li
+      %a{href: root_path} All Languages
+    %li.divider
     - Report.languages.each do |language|
-      %li{role: "presentation"}
-        %a{href: root_path(language: language), role: "menuitem", tabindex: "-1"}= language
+      %li
+        %a{href: root_path(language: language)}= language
+    %li.divider
+      %li
+        %a{href: root_path(language: Report::NO_LANGUAGE_KEY)} No Language
