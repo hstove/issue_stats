@@ -1,50 +1,49 @@
 - content_for(:title) { "Analysis" }
 
-= cache "analysis-section-v2", expires_in: 12.hours do
-  %h2.text-center Responsiveness by Language
-  %hr
-  %br
+%h2.text-center Responsiveness by Language
+%hr
+%br
 
-  %p.lead
-    Many people value a healthy, active community as an important part of
-    a programming language's value. Most people want to know that if bugs
-    and issues come up, enough other people will also care enough that the
-    issue will get resolved.
+%p.lead
+  Many people value a healthy, active community as an important part of
+  a programming language's value. Most people want to know that if bugs
+  and issues come up, enough other people will also care enough that the
+  issue will get resolved.
 
-  %br
+%br
 
-  .well
-    = language_chart
+.well
+  = language_chart
 
-  %br
-  %br
-  %h2.text-center Testing for Correlation
-  %hr
+%br
+%br
+%h2.text-center Testing for Correlation
+%hr
 
-  %br
+%br
 
-  %p.lead
-    - r2 = "r<sup>2</sup>".html_safe
-    While creating this application, I was curious about whether various metadata
-    about a project was related to the time it would take to close a Github issue.
-    I built these charts to visualize the relationship between different attributes,
-    and I display the calculated
-    = r2
-    underneath each chart. For most of these charts, the
-    = r2
-    is below
-    = succeed "," do
-      %code 0.1
-    meaning there is no linear relationship.
+%p.lead
+  - r2 = "r<sup>2</sup>".html_safe
+  While creating this application, I was curious about whether various metadata
+  about a project was related to the time it would take to close a Github issue.
+  I built these charts to visualize the relationship between different attributes,
+  and I display the calculated
+  = r2
+  underneath each chart. For most of these charts, the
+  = r2
+  is below
+  = succeed "," do
+    %code 0.1
+  meaning there is no linear relationship.
 
-  %br
+%br
 
-  .row
-    = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", stars: "Number of Stars"})
-    = analysis_chart({issue_close_time: "Seconds to Close an Issue", stars: "Number of Stars"})
-    = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", issue_close_time: "Seconds to Close an Issue"})
-    = analysis_chart({forks: "Forks", size: "Size (KB)"})
-    = analysis_chart({size: "Size (KB)", stars: "Stars"})
-    = analysis_chart({size: "Size (KB)", pr_close_time: "Seconds to Close a Pull Request"})
-    = analysis_chart({forks: "Forks", pr_close_time: "Seconds to Close a Pull Request"})
-    = analysis_chart({forks: "Forks", issue_close_time: "Seconds to Close an Issue"})
+.row
+  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", stars: "Number of Stars"})
+  = analysis_chart({issue_close_time: "Seconds to Close an Issue", stars: "Number of Stars"})
+  = analysis_chart({pr_close_time: "Seconds to Close a Pull Request", issue_close_time: "Seconds to Close an Issue"})
+  = analysis_chart({forks: "Forks", size: "Size (KB)"})
+  = analysis_chart({size: "Size (KB)", stars: "Stars"})
+  = analysis_chart({size: "Size (KB)", pr_close_time: "Seconds to Close a Pull Request"})
+  = analysis_chart({forks: "Forks", pr_close_time: "Seconds to Close a Pull Request"})
+  = analysis_chart({forks: "Forks", issue_close_time: "Seconds to Close an Issue"})
