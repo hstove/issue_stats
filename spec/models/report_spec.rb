@@ -70,4 +70,23 @@ RSpec.describe Report, :type => :model do
       end
     end
   end
+
+  describe ".from_key" do
+    it "will not refresh a non-ready report if found with last_enqueued_at" do
+      allow(report).to receive(:ready?).and_return(false)
+      report.last_enqueued_at = DateTime.now
+      allow(Report).to receive(:find_by).and_return(report)
+      expect(report).not_to receive(:bootstrap_async)
+      expect(report).not_to receive(:fetch_metadata)
+      Report.from_key("blah/blah")
+    end
+
+    it "will refresh a non-ready report if found" do
+      allow(report).to receive(:ready?).and_return(false)
+      allow(Report).to receive(:find_by).and_return(report)
+      expect(report).to receive(:bootstrap_async)
+      expect(report).to receive(:fetch_metadata)
+      Report.from_key("blah/blah")
+    end
+  end
 end

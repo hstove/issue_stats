@@ -21,7 +21,16 @@ class Report < ActiveRecord::Base
 
   class << self
     def from_key key
-      report = self.find_or_create_by(github_key: key)
+      attrs = {github_key: key}
+      if report = find_by(attrs)
+        if !report.ready? && !report.last_enqueued_at
+          report.fetch_metadata
+          report.bootstrap_async
+        end
+      else
+        report = create(attrs)
+      end
+      report
     end
 
     def languages
