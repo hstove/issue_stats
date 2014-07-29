@@ -1,0 +1,11 @@
+.dropdown
+  %a#language-select.dropdown-toggle{"data-toggle" => "dropdown", type: "button", href: "#"}
+    Select Language
+    %span.caret
+  %ul.dropdown-menu{"aria-labelledby" => "language-select", role: "menu"}
+    %li{role: "presentation"}
+      %a{href: root_path, role: "menuitem", tabindex: "-1"} All Languages
+    %li.divider{role: "presentation"}
+    - Report.languages.each do |language|
+      %li{role: "presentation"}
+        %a{href: root_path(language: language), role: "menuitem", tabindex: "-1"}= language

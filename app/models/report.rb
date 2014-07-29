@@ -9,10 +9,15 @@ class Report < ActiveRecord::Base
   after_create :bootstrap_async
 
   scope :ready, -> { where("pr_close_time > 0 and issue_close_time > 0 and issues_count > 25") }
+  scope :language, -> language { where("lower(language) = ?", language.downcase) }
 
   class << self
     def from_key key
       report = self.find_or_create_by(github_key: key)
+    end
+
+    def languages
+      select(:language).map(&:language).uniq.compact.sort
     end
   end
 

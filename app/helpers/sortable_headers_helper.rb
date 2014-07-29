@@ -8,6 +8,8 @@ module SortableHeadersHelper
     opts[:is_sorted] = params[:sortable_attr] == attr.to_s
     url = request.env['PATH_INFO']
     opts[:path] = Rails.application.routes.recognize_path(url)
+    opts[:path].merge! params
+    opts[:path].delete("page")
     opts[:path][:sortable_attr] = attr
     current_direction = params[:sortable_direction]
     if opts[:is_sorted]

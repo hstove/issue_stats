@@ -9,7 +9,8 @@
         = sortable_header :stargazers_count, title: "Stars"
         = sortable_header :forks_count, title: "Forks"
         = sortable_header :size
-        = sortable_header :language
+        %th
+          = render partial: "select_language"
     %tbody
       - @reports.each do |report|
         %tr

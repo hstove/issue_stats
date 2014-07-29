@@ -1,5 +1,6 @@
 class RepositoriesController < ApplicationController
   before_filter :fetch_report, only: [:show, :refresh, :badge]
+  has_scope :language
 
   rescue_from Octokit::ClientError do
     if params["action"] == "badge"
@@ -12,7 +13,7 @@ class RepositoriesController < ApplicationController
   end
 
   def index
-    @reports = Report.ready.paginate(page: params[:page])
+    @reports = apply_scopes(Report).ready.paginate(page: params[:page])
     @reports = apply_sort(@reports, default: {
       sortable_direction: "ASC",
       sortable_attr: "pr_close_time"
