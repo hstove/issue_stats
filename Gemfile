@@ -118,4 +118,5 @@ group :test, :development do
   gem 'coveralls', require: false
   gem "simplecov", require: false
   gem "guard-sidekiq"
+  gem "spring", group: :development
 end
