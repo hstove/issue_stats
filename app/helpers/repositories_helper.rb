@@ -46,11 +46,16 @@ module RepositoriesHelper
     keys = attrs.keys
     values = attrs.values
 
-    reports = Report.ready.with_issues
-    data = reports.map do |report|
-      { x: report.send(keys[0]), y: report.send(keys[1]), name: report.github_key }
+    data = Rails.cache.fetch ["analysis_chart", *attrs], expires_in: 1.hour do
+      reports = Report.ready.with_issues
+      reports.map do |report|
+        {
+          x: report.send(keys[0]),
+          y: report.send(keys[1]),
+          name: report.github_key
+        }
+      end
     end
-
     x = data.map { |d| d[:x] }
     y = data.map { |d| d[:y] }
     lineFit = LineFit.new
@@ -75,51 +80,53 @@ module RepositoriesHelper
   end
 
   def language_chart
-    reports = Report.ready
-    pr_languages, issues_languages = Hash.new, Hash.new
-    reports.each do |report|
-      key = report.language || "No Language"
-      issues_languages[key] ||= []
-      pr_languages[key] ||= []
-      issues_languages[key] << report.issue_close_time
-      pr_languages[key] << report.pr_close_time
-    end
+    Rails.cache.fetch "analysis_language_chart", expires_in: 1.hour do
+      reports = Report.ready
+      pr_languages, issues_languages = Hash.new, Hash.new
+      reports.each do |report|
+        key = report.language || "No Language"
+        issues_languages[key] ||= []
+        pr_languages[key] ||= []
+        issues_languages[key] << report.issue_close_time
+        pr_languages[key] << report.pr_close_time
+      end
 
-    pr_languages = pr_languages.sort_by { |k,v| v.median }
-    pr_values = pr_languages.map { |pair| pair.last.median }
-    issues_languages = issues_languages.sort_by { |k,v| v.median }
-    issues_values = issues_languages.map { |pair| pair.last.median }
+      pr_languages = pr_languages.sort_by { |k,v| v.median }
+      pr_values = pr_languages.map { |pair| pair.last.median }
+      issues_languages = issues_languages.sort_by { |k,v| v.median }
+      issues_values = issues_languages.map { |pair| pair.last.median }
 
-    chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(:text => "Responsiveness by Language")
-      f.series name: "Pull Requests", data: pr_values
-      f.series name: "Issues", data: issues_values
-      f.series(
-        name: "Number of Repositories Analyzed",
-        data: pr_languages.map{|pair| pair.last.size},
-        yAxis: 1,
-        stack: 1,
-        visible: false,
-      )
-      f.xAxis categories: pr_languages.map(&:first), labels: {rotation: -45, align: 'right'}
-      f.yAxis([
-        {
-          type: 'logarithmic',
-          title: {
-            text: "Seconds to Close an Issue"
+      chart = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title(:text => "Responsiveness by Language")
+        f.series name: "Pull Requests", data: pr_values
+        f.series name: "Issues", data: issues_values
+        f.series(
+          name: "Number of Repositories Analyzed",
+          data: pr_languages.map{|pair| pair.last.size},
+          yAxis: 1,
+          stack: 1,
+          visible: false,
+        )
+        f.xAxis categories: pr_languages.map(&:first), labels: {rotation: -45, align: 'right'}
+        f.yAxis([
+          {
+            type: 'logarithmic',
+            title: {
+              text: "Seconds to Close an Issue"
+            }
+          },{
+            type: 'logarithmic',
+            opposite: true,
+            title: { text: "Number of Repositories Analyzed" }
           }
-        },{
-          type: 'logarithmic',
-          opposite: true,
-          title: { text: "Number of Repositories Analyzed" }
-        }
-      ])
-      f.legend(align: 'right', verticalAlign: 'top', floating: true)
-      f.chart defaultSeriesType: "column"
-      f.labels style: {"font-size" => "10px"}
-      f.plotOptions column: { stacking: 'normal' }
-    end
+        ])
+        f.legend(align: 'right', verticalAlign: 'top', floating: true)
+        f.chart defaultSeriesType: "column"
+        f.labels style: {"font-size" => "10px"}
+        f.plotOptions column: { stacking: 'normal' }
+      end
 
-    high_chart "language-chart", chart
+      high_chart "language-chart", chart
+    end
   end
 end
