@@ -69,7 +69,7 @@ module RepositoriesHelper
 
   def analysis_chart_data(keys)
     Rails.cache.fetch ["analysis_chart", *keys], expires_in: 1.hour do
-      reports = Report.ready.with_issues
+      reports = analysis_reports
       reports.map do |report|
         {
           x: report.send(keys[0]),
@@ -77,6 +77,18 @@ module RepositoriesHelper
           name: report.github_key
         }
       end
+    end
+  end
+
+  def analysis_reports
+    Rails.cache.fetch "analysis_reports_v1" do
+      Report.ready
+        .with_issues
+        .where("stargazers_count > 0")
+        .where("forks_count > 0")
+        .where("size > 0")
+        .limit(1000)
+        .order("RANDOM()")
     end
   end
 
