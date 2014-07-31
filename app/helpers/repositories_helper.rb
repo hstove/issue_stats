@@ -46,7 +46,29 @@ module RepositoriesHelper
     keys = attrs.keys
     values = attrs.values
 
-    data = Rails.cache.fetch ["analysis_chart", *attrs], expires_in: 1.hour do
+    data = analysis_chart_data(keys)
+
+    content_tag :div, class: "analysis-chart well col-md-6" do
+      html = analysis_highchart(data, values)
+      html += analysis_r_squared(data)
+    end
+  end
+
+  def analysis_highchart(data, labels)
+    id = labels.join(" vs. ")
+    chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart type: "scatter", zoomType: "xy"
+      f.title text: id
+      f.series name: labels[0], color: labels[1], data: data
+      f.xAxis title: {text: labels[0]}, type: 'logarithmic'
+      f.yAxis title: {text: labels[1]}, type: "logarithmic"
+      f.legend enabled: false
+    end
+    high_chart(id.parameterize, chart)
+  end
+
+  def analysis_chart_data(keys)
+    Rails.cache.fetch ["analysis_chart", *keys], expires_in: 1.hour do
       reports = Report.ready.with_issues
       reports.map do |report|
         {
@@ -56,26 +78,15 @@ module RepositoriesHelper
         }
       end
     end
+  end
+
+  def analysis_r_squared(data)
     x = data.map { |d| d[:x] }
     y = data.map { |d| d[:y] }
     lineFit = LineFit.new
     lineFit.setData(x, y)
-
-    id = values.join(" vs. ")
-    chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart type: "scatter", zoomType: "xy"
-      f.title text: id
-      f.series name: values[0], color: values[1], data: data
-      f.xAxis title: {text: values[0]}, type: 'logarithmic'
-      f.yAxis title: {text: values[1]}, type: "logarithmic"
-      f.legend enabled: false
-    end
-
-    content_tag :div, class: "analysis-chart well col-md-6" do
-      html = high_chart(id.parameterize, chart)
-      html += content_tag :p, class: 'text-center' do
-        "r<sup>2</sup>: #{lineFit.rSquared.round(4)}".html_safe
-      end
+    content_tag :p, class: 'text-center' do
+      "r<sup>2</sup>: #{lineFit.rSquared.round(4)}".html_safe
     end
   end
 
@@ -96,37 +107,40 @@ module RepositoriesHelper
       issues_languages = issues_languages.sort_by { |k,v| v.median }
       issues_values = issues_languages.map { |pair| pair.last.median }
 
-      chart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Responsiveness by Language")
-        f.series name: "Pull Requests", data: pr_values
-        f.series name: "Issues", data: issues_values
-        f.series(
-          name: "Number of Repositories Analyzed",
-          data: pr_languages.map{|pair| pair.last.size},
-          yAxis: 1,
-          stack: 1,
-          visible: false,
-        )
-        f.xAxis categories: pr_languages.map(&:first), labels: {rotation: -45, align: 'right'}
-        f.yAxis([
-          {
-            type: 'logarithmic',
-            title: {
-              text: "Seconds to Close an Issue"
-            }
-          },{
-            type: 'logarithmic',
-            opposite: true,
-            title: { text: "Number of Repositories Analyzed" }
-          }
-        ])
-        f.legend(align: 'right', verticalAlign: 'top', floating: true)
-        f.chart defaultSeriesType: "column"
-        f.labels style: {"font-size" => "10px"}
-        f.plotOptions column: { stacking: 'normal' }
-      end
-
+      chart = language_highchart(pr_values, issues_values, pr_languages)
       high_chart "language-chart", chart
+    end
+  end
+
+  def language_highchart(pr_values, issues_values, languages)
+    LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(:text => "Responsiveness by Language")
+      f.series name: "Pull Requests", data: pr_values
+      f.series name: "Issues", data: issues_values
+      f.series(
+        name: "Number of Repositories Analyzed",
+        data: languages.map{|pair| pair.last.size},
+        yAxis: 1,
+        stack: 1,
+        visible: false,
+      )
+      f.xAxis categories: languages.map(&:first), labels: {rotation: -45, align: 'right'}
+      f.yAxis([
+        {
+          type: 'logarithmic',
+          title: {
+            text: "Seconds to Close an Issue"
+          }
+        },{
+          type: 'logarithmic',
+          opposite: true,
+          title: { text: "Number of Repositories Analyzed" }
+        }
+      ])
+      f.legend(align: 'right', verticalAlign: 'top', floating: true)
+      f.chart defaultSeriesType: "column"
+      f.labels style: {"font-size" => "10px"}
+      f.plotOptions column: { stacking: 'normal' }
     end
   end
 end
