@@ -80,18 +80,6 @@ module RepositoriesHelper
     end
   end
 
-  def analysis_reports
-    Rails.cache.fetch "analysis_reports_v1" do
-      Report.ready
-        .with_issues
-        .where("stargazers_count > 0")
-        .where("forks_count > 0")
-        .where("size > 0")
-        .limit(1000)
-        .order("RANDOM()")
-    end
-  end
-
   def analysis_r_squared(data)
     x = data.map { |d| d[:x] }
     y = data.map { |d| d[:y] }
@@ -105,13 +93,12 @@ module RepositoriesHelper
   def language_chart
     Rails.cache.fetch "analysis_language_chart", expires_in: 1.hour do
       reports = Report.ready
-      pr_languages, issues_languages = Hash.new, Hash.new
+      pr_languages = Hash.new { |h,k| h[k] = [] }
+      issues_languages = pr_languages.clone
       reports.each do |report|
         key = report.language || "No Language"
-        issues_languages[key] ||= []
-        pr_languages[key] ||= []
-        issues_languages[key] << report.issue_close_time
-        pr_languages[key] << report.pr_close_time
+        issues_languages[key].push report.issue_close_time
+        pr_languages[key].push report.pr_close_time
       end
 
       pr_languages = pr_languages.sort_by { |k,v| v.median }
@@ -121,38 +108,6 @@ module RepositoriesHelper
 
       chart = language_highchart(pr_values, issues_values, pr_languages)
       high_chart "language-chart", chart
-    end
-  end
-
-  def language_highchart(pr_values, issues_values, languages)
-    LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(:text => "Responsiveness by Language")
-      f.series name: "Pull Requests", data: pr_values
-      f.series name: "Issues", data: issues_values
-      f.series(
-        name: "Number of Repositories Analyzed",
-        data: languages.map{|pair| pair.last.size},
-        yAxis: 1,
-        stack: 1,
-        visible: false,
-      )
-      f.xAxis categories: languages.map(&:first), labels: {rotation: -45, align: 'right'}
-      f.yAxis([
-        {
-          type: 'logarithmic',
-          title: {
-            text: "Seconds to Close an Issue"
-          }
-        },{
-          type: 'logarithmic',
-          opposite: true,
-          title: { text: "Number of Repositories Analyzed" }
-        }
-      ])
-      f.legend(align: 'right', verticalAlign: 'top', floating: true)
-      f.chart defaultSeriesType: "column"
-      f.labels style: {"font-size" => "10px"}
-      f.plotOptions column: { stacking: 'normal' }
     end
   end
 end
