@@ -1,0 +1,36 @@
+- key = "has_seen_welcome_v2"
+- unless cookies[key]
+  #welcome-alert.alert.alert-info.text-center
+    %button.close{"data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+      %span.sr-only Close
+    %h3
+      Welcome to
+      = succeed "!" do
+        %strong Issue Stats
+    %br
+    %p.lead
+      Analyze and compare how long it takes for
+      = link_to "Github", "https://github.com", target: "_blank", class: "plain-link"
+      issues to be closed.
+    %br
+    %br
+    %p Check out some examples:
+    %br
+    %br
+    .row
+      - ["rails/rails", "joyent/node", "twbs/bootstrap"].each do |github_key|
+        - split = github_key.split("/")
+        - opts = {owner: split[0], repository: split[1]}
+        .col-lg-4
+          %p.lead
+            = link_to github_key, repository_path(opts)
+          %br
+          = image_tag badge_url(opts.merge(variant: "pr", style: "flat"))
+          %br
+          %br
+          = image_tag badge_url(opts.merge(variant: "issue", style: "flat"))
+    %br
+    %br
+  :coffeescript
+    @welcomeMessageKey = "#{key}"
