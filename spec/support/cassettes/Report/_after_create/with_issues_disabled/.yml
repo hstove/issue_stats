@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/git/git
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 01 Aug 2014 05:13:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4958'
+      X-Ratelimit-Reset:
+      - '1406872113'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 01 Aug 2014 02:34:28 GMT
+      Etag:
+      - '"b43582bc2b8e1e46304dca6168725b7b"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - 62E81C51:0446:182D7D1:53DB21EE
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 3061975e1f37121b3751604ad153c687
+    body:
+      encoding: UTF-8
+      string: '{"id":36502,"name":"git","full_name":"git/git","owner":{"login":"git","id":18133,"avatar_url":"https://avatars.githubusercontent.com/u/18133?v=1","gravatar_id":"878a0ea898da1701df8573ed64a5cc9d","url":"https://api.github.com/users/git","html_url":"https://github.com/git","followers_url":"https://api.github.com/users/git/followers","following_url":"https://api.github.com/users/git/following{/other_user}","gists_url":"https://api.github.com/users/git/gists{/gist_id}","starred_url":"https://api.github.com/users/git/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/git/subscriptions","organizations_url":"https://api.github.com/users/git/orgs","repos_url":"https://api.github.com/users/git/repos","events_url":"https://api.github.com/users/git/events{/privacy}","received_events_url":"https://api.github.com/users/git/received_events","type":"Organization","site_admin":false},"private":false,"html_url":"https://github.com/git/git","description":"Git
+        Source Code Mirror - This is a publish-only repository and all pull requests
+        are ignored. Please follow Documentation/SubmittingPatches procedure for any
+        of your improvements.","fork":false,"url":"https://api.github.com/repos/git/git","forks_url":"https://api.github.com/repos/git/git/forks","keys_url":"https://api.github.com/repos/git/git/keys{/key_id}","collaborators_url":"https://api.github.com/repos/git/git/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/git/git/teams","hooks_url":"https://api.github.com/repos/git/git/hooks","issue_events_url":"https://api.github.com/repos/git/git/issues/events{/number}","events_url":"https://api.github.com/repos/git/git/events","assignees_url":"https://api.github.com/repos/git/git/assignees{/user}","branches_url":"https://api.github.com/repos/git/git/branches{/branch}","tags_url":"https://api.github.com/repos/git/git/tags","blobs_url":"https://api.github.com/repos/git/git/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/git/git/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/git/git/git/refs{/sha}","trees_url":"https://api.github.com/repos/git/git/git/trees{/sha}","statuses_url":"https://api.github.com/repos/git/git/statuses/{sha}","languages_url":"https://api.github.com/repos/git/git/languages","stargazers_url":"https://api.github.com/repos/git/git/stargazers","contributors_url":"https://api.github.com/repos/git/git/contributors","subscribers_url":"https://api.github.com/repos/git/git/subscribers","subscription_url":"https://api.github.com/repos/git/git/subscription","commits_url":"https://api.github.com/repos/git/git/commits{/sha}","git_commits_url":"https://api.github.com/repos/git/git/git/commits{/sha}","comments_url":"https://api.github.com/repos/git/git/comments{/number}","issue_comment_url":"https://api.github.com/repos/git/git/issues/comments/{number}","contents_url":"https://api.github.com/repos/git/git/contents/{+path}","compare_url":"https://api.github.com/repos/git/git/compare/{base}...{head}","merges_url":"https://api.github.com/repos/git/git/merges","archive_url":"https://api.github.com/repos/git/git/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/git/git/downloads","issues_url":"https://api.github.com/repos/git/git/issues{/number}","pulls_url":"https://api.github.com/repos/git/git/pulls{/number}","milestones_url":"https://api.github.com/repos/git/git/milestones{/number}","notifications_url":"https://api.github.com/repos/git/git/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/git/git/labels{/name}","releases_url":"https://api.github.com/repos/git/git/releases{/id}","created_at":"2008-07-23T14:21:26Z","updated_at":"2014-08-01T02:34:28Z","pushed_at":"2014-07-31T22:05:10Z","git_url":"git://github.com/git/git.git","ssh_url":"git@github.com:git/git.git","clone_url":"https://github.com/git/git.git","svn_url":"https://github.com/git/git","homepage":"This
+        is a publish-only repository and all pull requests are ignored. Please follow
+        Documentation/SubmittingPatches procedure for any of your improvements.","size":238373,"stargazers_count":6379,"watchers_count":6379,"language":"C","has_issues":false,"has_downloads":true,"has_wiki":false,"forks_count":3824,"mirror_url":null,"open_issues_count":17,"forks":3824,"open_issues":17,"watchers":6379,"default_branch":"master","permissions":{"admin":false,"push":false,"pull":true},"organization":{"login":"git","id":18133,"avatar_url":"https://avatars.githubusercontent.com/u/18133?v=1","gravatar_id":"878a0ea898da1701df8573ed64a5cc9d","url":"https://api.github.com/users/git","html_url":"https://github.com/git","followers_url":"https://api.github.com/users/git/followers","following_url":"https://api.github.com/users/git/following{/other_user}","gists_url":"https://api.github.com/users/git/gists{/gist_id}","starred_url":"https://api.github.com/users/git/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/git/subscriptions","organizations_url":"https://api.github.com/users/git/orgs","repos_url":"https://api.github.com/users/git/repos","events_url":"https://api.github.com/users/git/events{/privacy}","received_events_url":"https://api.github.com/users/git/received_events","type":"Organization","site_admin":false},"network_count":3824,"subscribers_count":768}'
+    http_version: 
+  recorded_at: Fri, 01 Aug 2014 05:13:18 GMT
+recorded_with: VCR 2.8.0

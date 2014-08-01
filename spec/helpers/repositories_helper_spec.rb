@@ -1,15 +1,32 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the RepositoriesHelper. For example:
-#
-# describe RepositoriesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe RepositoriesHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe RepositoriesHelper, :type => :helper, vcr: true do
+  before(:each) do
+    create :report, github_key: "cloudflare/redoctober"
+    create :report, github_key: "youtube/vitess"
+    create :report, github_key: "gin-gonic/gin"
+    create :report, github_key: "fiorix/freegeoip"
+  end
+  include HighchartsHelper
+  include LazyHighCharts::LayoutHelper
+
+  let(:attrs) { { stars: "Stars", forks: "Forks" } }
+  let(:request) { Hashie::Mash.new(headers: {})}
+
+  describe "#analysis_chart" do
+    subject { analysis_chart(attrs) }
+    it { is_expected.to include("<script") }
+    it { is_expected.to include("Stars") }
+    it { is_expected.to include("Forks") }
+  end
+
+  describe "#language_chart" do
+    subject { language_chart }
+    it { is_expected.to include("<script") }
+  end
+
+  describe "#reponse_distribution_chart" do
+    subject { response_distribution_chart(Report.from_key("cloudflare/redoctober")) }
+    it { is_expected.to include("<script") }
+  end
 end

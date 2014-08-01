@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Fri, 01 Aug 2014 04:54:55 GMT
+      - Fri, 01 Aug 2014 04:20:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4997'
+      - '4968'
       X-Ratelimit-Reset:
-      - '1406872113'
+      - '1406868513'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Last-Modified:
@@ -65,19 +65,19 @@ http_interactions:
       Access-Control-Allow-Origin:
       - '*'
       X-Github-Request-Id:
-      - 62E81C51:3388:2AEDE78:53DB1D9F
+      - 62E81C51:3389:347FA17:53DB158F
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - c436b2b44345c72ff906059f604991e7
+      - a8d8e492d6966f0c23dee2eed64c678a
     body:
       encoding: UTF-8
       string: '{"id":11266575,"name":"rbtc_arbitrage","full_name":"hstove/rbtc_arbitrage","owner":{"login":"hstove","id":1109058,"avatar_url":"https://avatars.githubusercontent.com/u/1109058?v=1","gravatar_id":"73719c8eb97a63acd87f2f0a918a5005","url":"https://api.github.com/users/hstove","html_url":"https://github.com/hstove","followers_url":"https://api.github.com/users/hstove/followers","following_url":"https://api.github.com/users/hstove/following{/other_user}","gists_url":"https://api.github.com/users/hstove/gists{/gist_id}","starred_url":"https://api.github.com/users/hstove/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hstove/subscriptions","organizations_url":"https://api.github.com/users/hstove/orgs","repos_url":"https://api.github.com/users/hstove/repos","events_url":"https://api.github.com/users/hstove/events{/privacy}","received_events_url":"https://api.github.com/users/hstove/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/hstove/rbtc_arbitrage","description":"A
         gem for automating arbitrage between Bitcoin exchanges.","fork":false,"url":"https://api.github.com/repos/hstove/rbtc_arbitrage","forks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/forks","keys_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/keys{/key_id}","collaborators_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/teams","hooks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/hooks","issue_events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/events{/number}","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/events","assignees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/assignees{/user}","branches_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/branches{/branch}","tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/tags","blobs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/refs{/sha}","trees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/trees{/sha}","statuses_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/statuses/{sha}","languages_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/languages","stargazers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/stargazers","contributors_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contributors","subscribers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscribers","subscription_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscription","commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/commits{/sha}","git_commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/commits{/sha}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/comments{/number}","issue_comment_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/comments/{number}","contents_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contents/{+path}","compare_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/compare/{base}...{head}","merges_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/merges","archive_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/downloads","issues_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues{/number}","pulls_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls{/number}","milestones_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/milestones{/number}","notifications_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/labels{/name}","releases_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/releases{/id}","created_at":"2013-07-08T22:00:27Z","updated_at":"2014-07-29T03:03:38Z","pushed_at":"2014-08-01T03:17:11Z","git_url":"git://github.com/hstove/rbtc_arbitrage.git","ssh_url":"git@github.com:hstove/rbtc_arbitrage.git","clone_url":"https://github.com/hstove/rbtc_arbitrage.git","svn_url":"https://github.com/hstove/rbtc_arbitrage","homepage":"","size":834,"stargazers_count":131,"watchers_count":131,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":52,"mirror_url":null,"open_issues_count":4,"forks":52,"open_issues":4,"watchers":131,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"network_count":52,"subscribers_count":37}'
     http_version: 
-  recorded_at: Fri, 01 Aug 2014 04:54:55 GMT
+  recorded_at: Fri, 01 Aug 2014 04:20:31 GMT
 - request:
     method: get
     uri: https://api.github.com/repos/hstove/rbtc_arbitrage/issues?per_page=100&state=closed
@@ -101,7 +101,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Fri, 01 Aug 2014 04:54:56 GMT
+      - Fri, 01 Aug 2014 04:20:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -111,9 +111,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4996'
+      - '4967'
       X-Ratelimit-Reset:
-      - '1406872113'
+      - '1406868513'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Etag:
@@ -141,13 +141,13 @@ http_interactions:
       Access-Control-Allow-Origin:
       - '*'
       X-Github-Request-Id:
-      - 62E81C51:338B:17931F4:53DB1D9F
+      - 62E81C51:3388:2A6B0F5:53DB158F
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - d818ddef80f4c7d10683dd483558952a
+      - c436b2b44345c72ff906059f604991e7
     body:
       encoding: UTF-8
       string: '[{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/16","id":39258085,"number":16,"title":"Add
@@ -255,5 +255,162 @@ http_interactions:
         variables have been setup correctly with BITSTAMP_ADDRESS being my Bitstamp
         ''wallet id'' for deposit, and MTGOX_ADDRESS being the Gox one.\r\n\r\n"}]'
     http_version: 
-  recorded_at: Fri, 01 Aug 2014 04:54:56 GMT
+  recorded_at: Fri, 01 Aug 2014 04:20:32 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/jcla1/gisp
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 01 Aug 2014 04:20:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4966'
+      X-Ratelimit-Reset:
+      - '1406868513'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Tue, 29 Jul 2014 10:03:54 GMT
+      Etag:
+      - '"42c20ee834bc533ddf23b0e1ca5e433c"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - 62E81C51:3388:2A6B1A8:53DB1590
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 971af40390ac4398fcdd45c8dab0fbe7
+    body:
+      encoding: UTF-8
+      string: '{"id":15823444,"name":"gisp","full_name":"jcla1/gisp","owner":{"login":"jcla1","id":693212,"avatar_url":"https://avatars.githubusercontent.com/u/693212?v=1","gravatar_id":"1b2e0f80da05dae6e91a117e724a1c5e","url":"https://api.github.com/users/jcla1","html_url":"https://github.com/jcla1","followers_url":"https://api.github.com/users/jcla1/followers","following_url":"https://api.github.com/users/jcla1/following{/other_user}","gists_url":"https://api.github.com/users/jcla1/gists{/gist_id}","starred_url":"https://api.github.com/users/jcla1/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jcla1/subscriptions","organizations_url":"https://api.github.com/users/jcla1/orgs","repos_url":"https://api.github.com/users/jcla1/repos","events_url":"https://api.github.com/users/jcla1/events{/privacy}","received_events_url":"https://api.github.com/users/jcla1/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/jcla1/gisp","description":"Simple
+        LISP in Go","fork":false,"url":"https://api.github.com/repos/jcla1/gisp","forks_url":"https://api.github.com/repos/jcla1/gisp/forks","keys_url":"https://api.github.com/repos/jcla1/gisp/keys{/key_id}","collaborators_url":"https://api.github.com/repos/jcla1/gisp/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/jcla1/gisp/teams","hooks_url":"https://api.github.com/repos/jcla1/gisp/hooks","issue_events_url":"https://api.github.com/repos/jcla1/gisp/issues/events{/number}","events_url":"https://api.github.com/repos/jcla1/gisp/events","assignees_url":"https://api.github.com/repos/jcla1/gisp/assignees{/user}","branches_url":"https://api.github.com/repos/jcla1/gisp/branches{/branch}","tags_url":"https://api.github.com/repos/jcla1/gisp/tags","blobs_url":"https://api.github.com/repos/jcla1/gisp/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/jcla1/gisp/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/jcla1/gisp/git/refs{/sha}","trees_url":"https://api.github.com/repos/jcla1/gisp/git/trees{/sha}","statuses_url":"https://api.github.com/repos/jcla1/gisp/statuses/{sha}","languages_url":"https://api.github.com/repos/jcla1/gisp/languages","stargazers_url":"https://api.github.com/repos/jcla1/gisp/stargazers","contributors_url":"https://api.github.com/repos/jcla1/gisp/contributors","subscribers_url":"https://api.github.com/repos/jcla1/gisp/subscribers","subscription_url":"https://api.github.com/repos/jcla1/gisp/subscription","commits_url":"https://api.github.com/repos/jcla1/gisp/commits{/sha}","git_commits_url":"https://api.github.com/repos/jcla1/gisp/git/commits{/sha}","comments_url":"https://api.github.com/repos/jcla1/gisp/comments{/number}","issue_comment_url":"https://api.github.com/repos/jcla1/gisp/issues/comments/{number}","contents_url":"https://api.github.com/repos/jcla1/gisp/contents/{+path}","compare_url":"https://api.github.com/repos/jcla1/gisp/compare/{base}...{head}","merges_url":"https://api.github.com/repos/jcla1/gisp/merges","archive_url":"https://api.github.com/repos/jcla1/gisp/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/jcla1/gisp/downloads","issues_url":"https://api.github.com/repos/jcla1/gisp/issues{/number}","pulls_url":"https://api.github.com/repos/jcla1/gisp/pulls{/number}","milestones_url":"https://api.github.com/repos/jcla1/gisp/milestones{/number}","notifications_url":"https://api.github.com/repos/jcla1/gisp/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/jcla1/gisp/labels{/name}","releases_url":"https://api.github.com/repos/jcla1/gisp/releases{/id}","created_at":"2014-01-11T14:05:43Z","updated_at":"2014-07-29T10:03:54Z","pushed_at":"2014-06-29T08:28:47Z","git_url":"git://github.com/jcla1/gisp.git","ssh_url":"git@github.com:jcla1/gisp.git","clone_url":"https://github.com/jcla1/gisp.git","svn_url":"https://github.com/jcla1/gisp","homepage":null,"size":1477,"stargazers_count":193,"watchers_count":193,"language":"Go","has_issues":true,"has_downloads":true,"has_wiki":false,"forks_count":6,"mirror_url":null,"open_issues_count":0,"forks":6,"open_issues":0,"watchers":193,"default_branch":"master","permissions":{"admin":false,"push":false,"pull":true},"network_count":6,"subscribers_count":17}'
+    http_version: 
+  recorded_at: Fri, 01 Aug 2014 04:20:32 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/jcla1/gisp/issues?per_page=100&state=closed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 01 Aug 2014 04:20:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4965'
+      X-Ratelimit-Reset:
+      - '1406868513'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"38988da90e7b279f061b481011ac4161"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - 62E81C51:3388:2A6B245:53DB1590
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 6d7de9e645814cac34ea2a8d72ba3141
+    body:
+      encoding: UTF-8
+      string: '[{"url":"https://api.github.com/repos/jcla1/gisp/issues/3","labels_url":"https://api.github.com/repos/jcla1/gisp/issues/3/labels{/name}","comments_url":"https://api.github.com/repos/jcla1/gisp/issues/3/comments","events_url":"https://api.github.com/repos/jcla1/gisp/issues/3/events","html_url":"https://github.com/jcla1/gisp/pull/3","id":36741487,"number":3,"title":"Update
+        lexer.go","user":{"login":"kedebug","id":2161215,"avatar_url":"https://avatars.githubusercontent.com/u/2161215?v=1","gravatar_id":"c9605cacba26540aaea3c7ca8ecbafab","url":"https://api.github.com/users/kedebug","html_url":"https://github.com/kedebug","followers_url":"https://api.github.com/users/kedebug/followers","following_url":"https://api.github.com/users/kedebug/following{/other_user}","gists_url":"https://api.github.com/users/kedebug/gists{/gist_id}","starred_url":"https://api.github.com/users/kedebug/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kedebug/subscriptions","organizations_url":"https://api.github.com/users/kedebug/orgs","repos_url":"https://api.github.com/users/kedebug/repos","events_url":"https://api.github.com/users/kedebug/events{/privacy}","received_events_url":"https://api.github.com/users/kedebug/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","assignee":null,"milestone":null,"comments":1,"created_at":"2014-06-29T08:03:57Z","updated_at":"2014-06-29T08:29:06Z","closed_at":"2014-06-29T08:28:47Z","pull_request":{"url":"https://api.github.com/repos/jcla1/gisp/pulls/3","html_url":"https://github.com/jcla1/gisp/pull/3","diff_url":"https://github.com/jcla1/gisp/pull/3.diff","patch_url":"https://github.com/jcla1/gisp/pull/3.patch"},"body":"Just
+        simplify some code for lexer"},{"url":"https://api.github.com/repos/jcla1/gisp/issues/2","labels_url":"https://api.github.com/repos/jcla1/gisp/issues/2/labels{/name}","comments_url":"https://api.github.com/repos/jcla1/gisp/issues/2/comments","events_url":"https://api.github.com/repos/jcla1/gisp/issues/2/events","html_url":"https://github.com/jcla1/gisp/issues/2","id":27419039,"number":2,"title":"go
+        get github.com/jcla1/gisp does not work","user":{"login":"rogpeppe","id":66491,"avatar_url":"https://avatars.githubusercontent.com/u/66491?v=1","gravatar_id":"e0dedec2ffb08c81d5eb0d3d8fb966d7","url":"https://api.github.com/users/rogpeppe","html_url":"https://github.com/rogpeppe","followers_url":"https://api.github.com/users/rogpeppe/followers","following_url":"https://api.github.com/users/rogpeppe/following{/other_user}","gists_url":"https://api.github.com/users/rogpeppe/gists{/gist_id}","starred_url":"https://api.github.com/users/rogpeppe/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/rogpeppe/subscriptions","organizations_url":"https://api.github.com/users/rogpeppe/orgs","repos_url":"https://api.github.com/users/rogpeppe/repos","events_url":"https://api.github.com/users/rogpeppe/events{/privacy}","received_events_url":"https://api.github.com/users/rogpeppe/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","assignee":null,"milestone":null,"comments":1,"created_at":"2014-02-12T09:11:21Z","updated_at":"2014-02-12T11:09:40Z","closed_at":"2014-02-12T11:09:28Z","body":"gisp.go
+        uses relative imports. It shouldn''t."}]'
+    http_version: 
+  recorded_at: Fri, 01 Aug 2014 04:20:33 GMT
 recorded_with: VCR 2.8.0

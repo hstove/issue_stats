@@ -86,7 +86,8 @@ module RepositoriesHelper
     lineFit = LineFit.new
     lineFit.setData(x, y)
     content_tag :p, class: 'text-center' do
-      "r<sup>2</sup>: #{lineFit.rSquared.round(4)}".html_safe
+      r2 = lineFit.rSquared || 0
+      "r<sup>2</sup>: #{r2.round(4)}".html_safe
     end
   end
 

@@ -2,6 +2,35 @@ require 'rails_helper'
 
 RSpec.describe Report, :type => :model do
   let(:report) { build :report }
+
+  describe ".language" do
+    it "should return nil languages with a specific key" do
+      report = build :report, language: nil
+      allow(report).to receive(:fetch_metadata).and_return(true)
+      allow(report).to receive(:bootstrap_async).and_return(true)
+      report.save
+      found_report = Report.language(Report::NO_LANGUAGE_KEY).first
+      expect(found_report).to eql(report)
+    end
+
+    it "should return results by language if specified", :vcr do
+      report.save
+      found_report = Report.language(report.language.downcase).first
+      expect(found_report).to eql(report)
+    end
+  end
+
+  describe ".languages" do
+    it "should return the list of unique languages", :vcr do
+      report.save
+      create :report, github_key: "jcla1/gisp"
+      langs = Report.languages
+      expect(langs.size).to eql(2)
+      expect(langs).to include("Ruby")
+      expect(langs).to include("Go")
+    end
+  end
+
   describe "#bootstrap" do
     let(:issue) do
       Issue.new(
@@ -59,6 +88,11 @@ RSpec.describe Report, :type => :model do
       expect(report.description).to eql description
       expect(report.language).to eql 'Ruby'
     end
+
+    context "with issues disabled", :vcr do
+      subject { Report.from_key("git/git").issues_disabled }
+      it { is_expected.to eql(true) }
+    end
   end
 
   describe "#setup_distributions" do
@@ -88,5 +122,51 @@ RSpec.describe Report, :type => :model do
       expect(report).to receive(:fetch_metadata)
       Report.from_key("blah/blah")
     end
+
+    it "will create if not found" do
+      expect(Report).to receive(:create).and_return(true)
+      Report.from_key("blah/blah")
+    end
+  end
+
+  describe "#bytes" do
+    it "should return the right conversion from KB" do
+      report.size = 10000
+      bytes = report.size * 1000
+      expect(report.bytes).to eql(bytes)
+    end
+    it "should return false unless it has size" do
+      report.size = nil
+      expect(report.bytes).to eql(nil)
+    end
+  end
+
+  describe "#badge_url" do
+    before :each do
+      allow(report).to receive(:issue_close_time).and_return(30)
+      allow(report).to receive(:pr_close_time).and_return(30)
+    end
+    subject { report.badge_url("pr") }
+
+    it { is_expected.to include("Pull%20Requests") }
+    it { is_expected.to include("brightgreen.svg") }
+
+    context "issue" do
+      subject { report.badge_url("issue") }
+      it { is_expected.to include("Issue") }
+    end
+
+    it "should include the right color" do
+      allow(Issue).to receive(:duration_index).and_return(1)
+      expect(report.badge_url('pr')).to include("green.svg")
+      allow(Issue).to receive(:duration_index).and_return(11)
+      expect(report.badge_url('pr')).to include("yellow.svg")
+      expect(report.badge_url('issue')).to include("red.svg")
+    end
+  end
+
+  describe "#param_opts" do
+    subject { report.param_opts }
+    it { is_expected.to eql({owner: "hstove", repository: "rbtc_arbitrage"}) }
   end
 end

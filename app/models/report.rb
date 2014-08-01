@@ -53,7 +53,7 @@ class Report < ActiveRecord::Base
     issue_durations = []
     pr_durations = []
     _self = self
-    begin
+    unless self.issues_disabled
       issues do |issue|
         durations << issue.duration
         _self.issues_count += 1
@@ -67,8 +67,6 @@ class Report < ActiveRecord::Base
           _self.issues_distribution[tier] += 1
         end
       end
-    rescue Octokit::ClientError
-      self.issues_disabled = true
     end
     self.issues_count = _self.issues_count
     self.basic_distribution = _self.basic_distribution
@@ -107,6 +105,7 @@ class Report < ActiveRecord::Base
 
   def fetch_metadata
     repository = GH.repo github_key # ensure repo exists
+    self.issues_disabled = !repository.has_issues
     metadata_attrs.each do |attr|
       send("#{attr}=", repository.send(attr))
     end

@@ -36,4 +36,5 @@ Prwatch::Application.configure do
 
   ActiveJob::Base.queue_adapter = :inline
   config.cache_store = :null_store
+  ActiveJob::Base.logger.level = 2
 end
