@@ -54,32 +54,6 @@ module RepositoriesHelper
     end
   end
 
-  def analysis_highchart(data, labels)
-    id = labels.join(" vs. ")
-    chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart type: "scatter", zoomType: "xy"
-      f.title text: id
-      f.series name: labels[0], color: labels[1], data: data
-      f.xAxis title: {text: labels[0]}, type: 'logarithmic'
-      f.yAxis title: {text: labels[1]}, type: "logarithmic"
-      f.legend enabled: false
-    end
-    high_chart(id.parameterize, chart)
-  end
-
-  def analysis_chart_data(keys)
-    Rails.cache.fetch ["analysis_chart", *keys], expires_in: 1.hour do
-      reports = analysis_reports
-      reports.map do |report|
-        {
-          x: report.send(keys[0]),
-          y: report.send(keys[1]),
-          name: report.github_key
-        }
-      end
-    end
-  end
-
   def analysis_r_squared(data)
     x = data.map { |d| d[:x] }
     y = data.map { |d| d[:y] }
