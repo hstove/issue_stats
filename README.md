@@ -4,8 +4,10 @@
 [![Code Climate](http://img.shields.io/codeclimate/github/hstove/issue_stats.svg?style=flat)](https://codeclimate.com/github/hstove/issue_stats)
 [![Coverage Status](https://img.shields.io/coveralls/hstove/issue_stats.svg?style=flat)](https://coveralls.io/r/hstove/issue_stats?branch=master)
 
-This is a project for analyzing how long it takes for Github issues to
-be closed.
+This is a project for analyzing how long it takes for Github issues and pull
+requests to be closed.
+
+[![screen shot 2014-08-01 at 5 21 30 pm](https://cloud.githubusercontent.com/assets/1109058/3786551/135929a8-19db-11e4-98d3-c5b3dc741117.png)](http://issuestats.com/github/rails/rails)
 
 This project serves badges like so:
 
