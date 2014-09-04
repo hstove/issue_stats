@@ -130,11 +130,14 @@ class Report < ActiveRecord::Base
       word = "Issues"
       divisor = 2
     end
-    duration_in_words = distance_of_time_in_words(duration)
-
-    colors = %w(#00bc8c #3498DB #AC6900 #E74C3C)
-    colors = %w(brightgreen green yellowgreen yellow orange red)
-    color = colors[index / divisor] || colors.last
+    if duration
+      duration_in_words = distance_of_time_in_words(duration)
+      colors = %w(brightgreen green yellowgreen yellow orange red)
+      color = colors[index / divisor] || colors.last
+    else
+      duration_in_words = "Not Available"
+      color = "red"
+    end
 
     url = "http://img.shields.io/badge/#{word}%20Closed%20In-"
     url << "#{URI.escape(duration_in_words)}-#{color}.svg"

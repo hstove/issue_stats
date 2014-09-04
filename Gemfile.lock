@@ -1,15 +1,15 @@
 GIT
+  remote: git://github.com/hstove/dynamojs_rails.git
+  revision: 2b3f015310a4e6e9096f85bb4e842c0b3c9b52da
+  specs:
+    dynamojs_rails (1.0.0)
+
+GIT
   remote: git://github.com/hstove/afterparty.git
   revision: 86354faf6cf65420e123981f27cc5afa11147520
   specs:
     afterparty (0.2.0)
       iconv
-
-GIT
-  remote: git://github.com/hstove/dynamojs_rails.git
-  revision: 2b3f015310a4e6e9096f85bb4e842c0b3c9b52da
-  specs:
-    dynamojs_rails (1.0.0)
 
 GIT
   remote: git://github.com/smartinez87/exception_notification.git
@@ -234,9 +234,6 @@ GEM
     octokit (3.2.0)
       sawyer (~> 0.5.3)
     orm_adapter (0.5.0)
-    paper_trail (3.0.3)
-      activerecord (>= 3.0, < 5.0)
-      activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     polyglot (0.3.5)
     posix-spawn (0.3.8)
@@ -467,7 +464,6 @@ DEPENDENCIES
   nokogiri
   nprogress-rails
   octokit
-  paper_trail
   pg
   public_activity
   quiet_assets

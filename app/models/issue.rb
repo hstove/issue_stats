@@ -15,6 +15,7 @@ class Issue < Hashie::Mash
     end
 
     def duration_tier_from_duration(duration)
+      return 0 unless duration
       duration_tiers.each_with_index do |tier, index|
         last_tier = index == 0 ? 0 : Issue.duration_tiers[index - 1]
         if (duration <= tier) && (duration > last_tier)
