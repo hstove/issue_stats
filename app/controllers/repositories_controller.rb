@@ -13,7 +13,7 @@ class RepositoriesController < ApplicationController
   end
 
   def index
-    @reports = apply_scopes(Report).ready.paginate(page: params[:page])
+    @reports = apply_scopes(Report).ready.paginate(page: params[:page] || 1)
     @reports = @reports.with_issues unless params[:language]
     @reports = apply_sort(@reports, default: {
       sortable_direction: "ASC",
