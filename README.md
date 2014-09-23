@@ -18,8 +18,13 @@ http://issuestats.com/github/twbs/bootstrap/badge/issue :
 
 You can add `?style=flat` to the url to get a flat badge:
 
-http://issuestats.com/github/joyen/node/badge/pr?style=flat :
-![joyen/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat)
+http://issuestats.com/github/joyent/node/badge/pr?style=flat :
+![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat)
+
+`?style=flat-square` is also available:
+
+http://issuestats.com/github/joyent/node/badge/pr?style=flat-square :
+![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square)
 
 ## Contributing
 
