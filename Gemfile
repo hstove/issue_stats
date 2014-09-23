@@ -118,4 +118,5 @@ group :test, :development do
   gem "simplecov", require: false
   gem "guard-sidekiq"
   gem "spring", group: :development
+  gem 'dotenv'
 end

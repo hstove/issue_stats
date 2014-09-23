@@ -124,6 +124,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.1)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     ejs (1.1.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -430,6 +433,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   devise
+  dotenv
   dynamojs_rails!
   ejs
   exception_notification!
