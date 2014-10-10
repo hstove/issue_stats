@@ -2,15 +2,7 @@ class RepositoriesController < ApplicationController
   before_filter :fetch_report, only: [:show, :refresh, :badge]
   has_scope :language
 
-  rescue_from Octokit::ClientError do
-    if params["action"] == "badge"
-      url = "http://img.shields.io/badge/Issue_Stats-Not_Found-lightgrey.svg"
-      url << "?style=#{params[:style]}" if params[:style]
-      redirect_to url
-    else
-      render "not_found"
-    end
-  end
+  rescue_from Octokit::ClientError, with: :not_found_badge
 
   def index
     @reports = apply_scopes(Report).ready.paginate(page: params[:page] || 1)
@@ -28,7 +20,11 @@ class RepositoriesController < ApplicationController
   end
 
   def badge
-    redirect_to @report.badge_url(params[:variant], params[:style])
+    unless variant
+      not_found_badge
+    else
+      redirect_to @report.badge_url(variant, style)
+    end
   end
 
   def refresh
@@ -48,6 +44,28 @@ class RepositoriesController < ApplicationController
     (default = opts[:default] || {}).stringify_keys
     params.reverse_merge! default
     relation.order("#{params[:sortable_attr]} #{params[:sortable_direction]}")
+  end
+
+  def style
+    _style = params[:style].to_s
+    return nil unless ['pr', 'issue'].include?(_style)
+    _style
+  end
+
+  def variant
+    _variant = params[:variant].to_s
+    return nil unless ['flat'].include?(_variant)
+    _variant
+  end
+
+  def not_found_badge
+    if params["action"] == "badge"
+      url = "http://img.shields.io/badge/Issue_Stats-Not_Found-lightgrey.svg"
+      url << "?style=#{style}" if style
+      redirect_to url
+    else
+      render "not_found"
+    end
   end
 
 end
