@@ -20,10 +20,10 @@ class RepositoriesController < ApplicationController
   end
 
   def badge
-    unless variant
-      not_found_badge
-    else
+    if variant
       redirect_to @report.badge_url(variant, style)
+    else
+      not_found_badge
     end
   end
 
@@ -48,13 +48,13 @@ class RepositoriesController < ApplicationController
 
   def style
     _style = params[:style].to_s
-    return nil unless ['pr', 'issue'].include?(_style)
+    return nil unless ['flat'].include?(_style)
     _style
   end
 
   def variant
     _variant = params[:variant].to_s
-    return nil unless ['flat'].include?(_variant)
+    return nil unless ['pr','issue'].include?(_variant)
     _variant
   end
 
