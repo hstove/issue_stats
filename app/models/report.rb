@@ -53,19 +53,17 @@ class Report < ActiveRecord::Base
     issue_durations = []
     pr_durations = []
     _self = self
-    unless self.issues_disabled
-      issues do |issue|
-        durations << issue.duration
-        _self.issues_count += 1
-        tier = issue.duration_tier
-        _self.basic_distribution[tier] += 1
-        if issue.pull_request
-          pr_durations << issue.duration
-          _self.pr_distribution[tier] += 1
-        else
-          issue_durations << issue.duration
-          _self.issues_distribution[tier] += 1
-        end
+    issues do |issue|
+      durations << issue.duration
+      _self.issues_count += 1
+      tier = issue.duration_tier
+      _self.basic_distribution[tier] += 1
+      if issue.pull_request
+        pr_durations << issue.duration
+        _self.pr_distribution[tier] += 1
+      else
+        issue_durations << issue.duration
+        _self.issues_distribution[tier] += 1
       end
     end
     self.issues_count = _self.issues_count
