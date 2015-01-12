@@ -82,7 +82,7 @@ class Report < ActiveRecord::Base
   end
 
   def ready?
-    !!pr_close_time
+    !!pr_close_time || !!issue_close_time
   end
 
   def setup_distributions
