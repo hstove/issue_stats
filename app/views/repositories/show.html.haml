@@ -56,8 +56,8 @@
       Updated
       = time_ago_in_words @report.updated_at
       ago
+  - if !@report.last_enqueued_at || (@report.last_enqueued_at < 1.hour.ago)
     %br
     = link_to report_path(@report), method: :put, remote: true, id: "refresh-report" do
       = fa_icon "refresh"
       %span#refresh-text refresh
-
