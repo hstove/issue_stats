@@ -11,7 +11,7 @@
     contentType: "application/vnd.github.v3.raw"
     success: (data) ->
       $ ->
-        html = marked(atob(data.content))
+        html = marked(Base64.decode(data.content))
         $container = $('#markdown-container')
         $container.html html
         $container.find('table').addClass('table table-bordered table-hover')

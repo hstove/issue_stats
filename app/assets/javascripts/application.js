@@ -20,3 +20,4 @@
 //= require nprogress-turbolinks
 //= require_directory .
 //= require vendor/marked
+//= require vendor/base64
