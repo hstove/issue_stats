@@ -18,4 +18,5 @@
 //= require bootstrap
 //= require nprogress
 //= require nprogress-turbolinks
-//= require_tree .
+//= require_directory .
+//= require vendor/marked

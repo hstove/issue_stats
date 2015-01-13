@@ -11,8 +11,11 @@
     contentType: "application/vnd.github.v3.raw"
     success: (data) ->
       $ ->
-        html = markdown.toHTML atob(data.content)
-        $('#markdown-container').html html
+        html = marked(atob(data.content))
+        $container = $('#markdown-container')
+        $container.html html
+        $container.find('table').addClass('table table-bordered table-hover')
+
 $ ->
   $('#search').submit ->
     val = $('#search-input').val()
