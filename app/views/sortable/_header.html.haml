@@ -2,4 +2,4 @@
   = link_to path, link_opts do
     = title
     - if is_sorted
-      = sort_symbol.html_safe
+      = sort_symbol.try(:html_safe)
