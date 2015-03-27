@@ -1,8 +1,9 @@
 - badge_link = badge_url(report.param_opts.merge(variant: variant))
 - flat_badge = badge_link + "?style=flat"
+- flat_square_badge = badge_link + "?style=flat-square"
 - url = report_url(report)
 #badge-modal-toggle.text-right{"data-toggle" => "modal", "data-target" => "#badge-modal-#{variant}"}
-  = image_tag flat_badge
+  = image_tag flat_square_badge
 .modal.fade{id: "badge-modal-#{variant}"}
   .modal-dialog
     .modal-content
@@ -18,9 +19,11 @@
             = link_to "Classic", "#badge-tab-#{variant}-0", role: "tab", data: {toggle: "tab"}
           %li
             = link_to "Flat", "#badge-tab-#{variant}-1", role: "tab", data: {toggle: "tab"}
+          %li
+            = link_to "Flat-Square", "#badge-tab-#{variant}-2", role: "tab", data: {toggle: "tab"}
 
         .tab-content
-          - [badge_link, flat_badge].each_with_index do |link, index|
+          - [badge_link, flat_badge, flat_square_badge].each_with_index do |link, index|
             - clazz = index == 0 ? "tab-pane active" : "tab-pane"
             %div{id: "badge-tab-#{variant}-#{index}", class: clazz}
               .text-center

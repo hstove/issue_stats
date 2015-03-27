@@ -117,7 +117,7 @@ class Report < ActiveRecord::Base
   end
 
   # variant is either 'issue' or 'pr'
-  def badge_url(variant, style = nil)
+  def badge_url(variant, style = 'plastic')
     preamble, words, color = badge_values(variant)
 
     url = "http://img.shields.io/badge/#{URI.escape(preamble)}-"
