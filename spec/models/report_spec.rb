@@ -148,12 +148,12 @@ RSpec.describe Report, :type => :model do
     end
     subject { report.badge_url("pr") }
 
-    it { is_expected.to include("Pull%20Requests") }
+    it { is_expected.to include("pull%20requests") }
     it { is_expected.to include("brightgreen.svg") }
 
     context "issue" do
       subject { report.badge_url("issue") }
-      it { is_expected.to include("Issue") }
+      it { is_expected.to include("issue") }
     end
 
     it "should include the right color" do
