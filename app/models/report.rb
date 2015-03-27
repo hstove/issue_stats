@@ -118,14 +118,43 @@ class Report < ActiveRecord::Base
 
   # variant is either 'issue' or 'pr'
   def badge_url(variant, style = nil)
+    preamble, words, color = badge_values(variant)
+
+    url = "http://img.shields.io/badge/#{URI.escape(preamble)}-"
+    url << "#{URI.escape(words)}-#{color}.svg"
+    url << "?style=#{style}" if style
+    url
+  end
+
+  def param_opts
+    owner, repository = github_key.split("/")
+    { owner: owner, repository: repository }
+  end
+
+  def badge_preamble(variant)
+    badge_values(variant)[0]
+  end
+
+  def badge_words(variant)
+    badge_values(variant)[1]
+  end
+
+  def badge_color(variant)
+    badge_values(variant)[2]
+  end
+
+  private
+
+  # Returns [preable, words, color]
+  def badge_values(variant)
     duration = send("#{variant}_close_time")
     index = Issue.duration_index(duration)
 
     if variant == 'pr'
-      word = "Pull%20Requests"
+      word = "pull requests"
       divisor = 3
     else
-      word = "Issues"
+      word = "issues"
       divisor = 2
     end
     if duration
@@ -137,18 +166,8 @@ class Report < ActiveRecord::Base
       color = "red"
     end
 
-    url = "http://img.shields.io/badge/#{word}%20Closed%20In-"
-    url << "#{URI.escape(duration_in_words)}-#{color}.svg"
-    url << "?style=#{style}" if style
-    url
+    ["#{word} closed in", duration_in_words.downcase, color]
   end
-
-  def param_opts
-    owner, repository = github_key.split("/")
-    { owner: owner, repository: repository }
-  end
-
-  private
 
   def metadata_attrs
     %i(open_issues_count stargazers_count forks_count size language description)
