@@ -32,6 +32,10 @@
     = response_distribution_chart @report
 
   %br
+  %p.text-center
+    Get this data via JSON:
+    - url = report_url(@report) + '?format=json'
+    = link_to url, url, target: :_blank
   %br
 
   #markdown-container.well
