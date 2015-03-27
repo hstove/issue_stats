@@ -50,7 +50,7 @@ class RepositoriesController < ApplicationController
 
   def style
     _style = params[:style].to_s
-    return nil unless ['flat'].include?(_style)
+    return nil unless ['flat', 'flat-square'].include?(_style)
     _style
   end
 
