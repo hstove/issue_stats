@@ -9,6 +9,8 @@ requests to be closed.
 
 [![screen shot 2014-08-01 at 5 21 30 pm](https://cloud.githubusercontent.com/assets/1109058/3786551/135929a8-19db-11e4-98d3-c5b3dc741117.png)](http://issuestats.com/github/rails/rails)
 
+## Badges
+
 This project serves badges like so:
 
 http://issuestats.com/github/rails/rails/badge/pr :
@@ -25,6 +27,12 @@ http://issuestats.com/github/joyent/node/badge/pr?style=flat :
 
 http://issuestats.com/github/joyent/node/badge/pr?style=flat-square :
 ![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square)
+
+## API
+
+You can get JSON data for a given repository by appending `?format=json` to a repository's Issue Stats URL:
+
+[issuestats.com/github/rails/rails?format=json](http://issuestats.com/github/rails/rails?format=json)
 
 ## Contributing
 
