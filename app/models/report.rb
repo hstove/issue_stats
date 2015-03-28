@@ -151,14 +151,14 @@ class Report < ActiveRecord::Base
     index = Issue.duration_index(duration)
 
     if variant == 'pr'
-      word = "pull requests"
+      word = "pull"
       divisor = 3
     else
-      word = "issues"
+      word = "issue"
       divisor = 2
     end
     if duration
-      duration_in_words = distance_of_time_in_words(duration)
+      duration_in_words = approximate_distance_of_time_in_words(duration)
       colors = %w(brightgreen green yellowgreen yellow orange red)
       color = colors[index / divisor] || colors.last
     else
@@ -166,10 +166,34 @@ class Report < ActiveRecord::Base
       color = "red"
     end
 
-    ["#{word} closed in", duration_in_words.downcase, color]
+    ["#{word} closure", duration_in_words.downcase, color]
   end
 
   def metadata_attrs
     %i(open_issues_count stargazers_count forks_count size language description)
+  end
+
+  # Get the approximate disntance of time in words from the given from_time
+  # to the the given to_time. If to_time is not specified then it is set
+  # to 0.
+  # rubocop:disable Metrics/AbcSize
+  def approximate_distance_of_time_in_words(from_time, to_time = 0)
+    from_time = from_time.to_time if from_time.respond_to?(:to_time)
+    to_time = to_time.to_time if to_time.respond_to?(:to_time)
+    from_time, to_time = to_time, from_time if from_time > to_time
+    distance_in_min = ((to_time - from_time) / 60).round
+
+    case distance_in_min
+    when 0 then '< 1 min'
+    when 2..44 then "#{distance_in_min} min"
+    when 45..89 then '~1 hr'
+    when 90..1439 then "#{(distance_in_min.to_f / 60.0).round} hrs"
+    when 1440..2879 then '1 day'
+    when 2880..43_199 then "#{(distance_in_min / 1440).round} days"
+    when 43_200..86_399 then '~1 mon'
+    when 86_400..525_959 then "#{(distance_in_min / 43_200).round} mon"
+    when 525_960..1_051_919 then '~1 yr'
+    else "> #{(distance_in_min / 525_960).round} yrs"
+    end
   end
 end
