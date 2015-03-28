@@ -117,8 +117,8 @@ class Report < ActiveRecord::Base
   end
 
   # variant is either 'issue' or 'pr'
-  def badge_url(variant, style = 'plastic')
-    preamble, words, color = badge_values(variant)
+  def badge_url(variant, style = 'plastic', concise = false)
+    preamble, words, color = badge_values(variant, concise)
 
     url = "http://img.shields.io/badge/#{URI.escape(preamble)}-"
     url << "#{URI.escape(words)}-#{color}.svg"
@@ -146,30 +146,63 @@ class Report < ActiveRecord::Base
   private
 
   # Returns [preable, words, color]
-  def badge_values(variant)
+  def badge_values(variant, concise)
     duration = send("#{variant}_close_time")
     index = Issue.duration_index(duration)
 
     if variant == 'pr'
-      word = "pull requests"
+      word = concise ? "pull" : "pull requests"
       divisor = 3
     else
-      word = "issues"
+      word = concise ? "issue" : "issues"
       divisor = 2
     end
     if duration
-      duration_in_words = distance_of_time_in_words(duration)
       colors = %w(brightgreen green yellowgreen yellow orange red)
       color = colors[index / divisor] || colors.last
     else
-      duration_in_words = "Not Available"
       color = "red"
     end
-
-    ["#{word} closed in", duration_in_words.downcase, color]
+    duration_in_words = time_in_words(duration, concise)
+    suffix = concise ? "closure" : "closed in"
+    ["#{word} #{suffix}", duration_in_words.downcase, color]
   end
 
   def metadata_attrs
     %i(open_issues_count stargazers_count forks_count size language description)
+  end
+
+  def time_in_words(duration, concise = false)
+    if duration
+      if concise
+        concise_distance_of_time_in_words(duration)
+      else
+        distance_of_time_in_words(duration)
+      end
+    else
+      "Not Available"
+    end
+  end
+
+  # Get the approximate disntance of time in words from the given from_time
+  # to the the given to_time. If to_time is not specified then it is set
+  # to 0.
+  # rubocop:disable Metrics/AbcSize
+  def concise_distance_of_time_in_words(from_time, to_time = 0)
+    from_time = from_time.to_time if from_time.respond_to?(:to_time)
+    to_time = to_time.to_time if to_time.respond_to?(:to_time)
+    from_time, to_time = to_time, from_time if from_time > to_time
+    distance_in_min = ((to_time - from_time) / 60).round
+
+    case distance_in_min
+    when 0..44 then "#{distance_in_min} min"
+    when 45..89 then '~1 hr'
+    when 90..1439 then "#{(distance_in_min.to_f / 60.0).round} hrs"
+    when 1440..2879 then '1 day'
+    when 2880..43_199 then "#{(distance_in_min / 1440).round} days"
+    when 43_200..525_959 then "#{(distance_in_min / 43_200).round} mon"
+    when 525_960..788_940 then '~1 yr'
+    else "> #{(distance_in_min / 525_960).round} yrs"
+    end
   end
 end

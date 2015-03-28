@@ -23,7 +23,7 @@ class RepositoriesController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     if variant
-      redirect_to @report.badge_url(variant, style)
+      redirect_to @report.badge_url(variant, style, option)
     else
       not_found_badge
     end
@@ -58,6 +58,10 @@ class RepositoriesController < ApplicationController
     _variant = params[:variant].to_s
     return nil unless ['pr','issue'].include?(_variant)
     _variant
+  end
+
+  def option
+    params[:concise] || false
   end
 
   def not_found_badge
