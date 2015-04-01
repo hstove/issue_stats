@@ -98,7 +98,8 @@ class Report < ActiveRecord::Base
   end
 
   def distribution(type, tier)
-    send("#{type}_distribution")[tier.to_i]
+    hash = send("#{type}_distribution")
+    hash[tier.to_i] || hash[tier]
   end
 
   def fetch_metadata

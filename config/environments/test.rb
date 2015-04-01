@@ -34,7 +34,7 @@ Prwatch::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  ActiveJob::Base.queue_adapter = :inline
+  config.queue_adapter = :inline
   config.cache_store = :null_store
   ActiveJob::Base.logger.level = 2
 end

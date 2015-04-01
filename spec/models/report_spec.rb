@@ -39,7 +39,7 @@ RSpec.describe Report, :type => :model do
       )
     end
     it "properly groups issues into their tier", :vcr do
-      allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
+      allow_any_instance_of(Report).to receive(:issues).and_yield(issue)
       report.save
       report.reload
       first_tier = Issue.duration_tiers[0]
