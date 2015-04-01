@@ -28,6 +28,11 @@ http://issuestats.com/github/joyent/node/badge/pr?style=flat :
 http://issuestats.com/github/joyent/node/badge/pr?style=flat-square :
 ![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square)
 
+You can also add `?concise=true` to the URL to get a more concise version: (thanks to [brettwooldridge](https://github.com/brettwooldridge)):
+
+http://issuestats.com/github/rails/rails/badge/pr?style=flat-square&concise=true :
+![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square&concise=true)
+
 ## API
 
 You can get JSON data for a given repository by appending `?format=json` to a repository's Issue Stats URL:
