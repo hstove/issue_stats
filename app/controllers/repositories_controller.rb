@@ -23,7 +23,7 @@ class RepositoriesController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     if variant
-      redirect_to @report.badge_url(variant, style)
+      redirect_to @report.badge_url(variant, style: style, concise: concise)
     else
       not_found_badge
     end
@@ -60,9 +60,13 @@ class RepositoriesController < ApplicationController
     _variant
   end
 
+  def concise
+    params[:concise] || false
+  end
+
   def not_found_badge
     if params["action"] == "badge"
-      url = "http://img.shields.io/badge/Issue_Stats-Not_Found-lightgrey.svg"
+      url = "https://img.shields.io/badge/Issue_Stats-Not_Found-lightgrey.svg"
       url << "?style=#{style}" if style
       redirect_to url
     else

@@ -1,1 +1,1 @@
-ScrapeJob.enqueue "a"
+ScrapeJob.perform_later "a"

@@ -1,0 +1,285 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/hstove/rbtc_arbitrage
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 01 Apr 2015 17:57:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4860'
+      X-Ratelimit-Reset:
+      - '1427912111'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Mon, 30 Mar 2015 16:09:20 GMT
+      Etag:
+      - W/"7c42a8176fe1e2a73d1a476304a95933"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - AE1F4745:4CC3:204625:551C3187
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+    body:
+      encoding: UTF-8
+      string: '{"id":11266575,"name":"rbtc_arbitrage","full_name":"hstove/rbtc_arbitrage","owner":{"login":"hstove","id":1109058,"avatar_url":"https://avatars.githubusercontent.com/u/1109058?v=3","gravatar_id":"","url":"https://api.github.com/users/hstove","html_url":"https://github.com/hstove","followers_url":"https://api.github.com/users/hstove/followers","following_url":"https://api.github.com/users/hstove/following{/other_user}","gists_url":"https://api.github.com/users/hstove/gists{/gist_id}","starred_url":"https://api.github.com/users/hstove/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hstove/subscriptions","organizations_url":"https://api.github.com/users/hstove/orgs","repos_url":"https://api.github.com/users/hstove/repos","events_url":"https://api.github.com/users/hstove/events{/privacy}","received_events_url":"https://api.github.com/users/hstove/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/hstove/rbtc_arbitrage","description":"A
+        gem for automating arbitrage between Bitcoin exchanges.","fork":false,"url":"https://api.github.com/repos/hstove/rbtc_arbitrage","forks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/forks","keys_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/keys{/key_id}","collaborators_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/teams","hooks_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/hooks","issue_events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/events{/number}","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/events","assignees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/assignees{/user}","branches_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/branches{/branch}","tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/tags","blobs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/refs{/sha}","trees_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/trees{/sha}","statuses_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/statuses/{sha}","languages_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/languages","stargazers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/stargazers","contributors_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contributors","subscribers_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscribers","subscription_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/subscription","commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/commits{/sha}","git_commits_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/git/commits{/sha}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/comments{/number}","issue_comment_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/comments{/number}","contents_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/contents/{+path}","compare_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/compare/{base}...{head}","merges_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/merges","archive_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/downloads","issues_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues{/number}","pulls_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls{/number}","milestones_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/milestones{/number}","notifications_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/labels{/name}","releases_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/releases{/id}","created_at":"2013-07-08T22:00:27Z","updated_at":"2015-03-30T16:09:20Z","pushed_at":"2014-09-26T23:44:43Z","git_url":"git://github.com/hstove/rbtc_arbitrage.git","ssh_url":"git@github.com:hstove/rbtc_arbitrage.git","clone_url":"https://github.com/hstove/rbtc_arbitrage.git","svn_url":"https://github.com/hstove/rbtc_arbitrage","homepage":"","size":963,"stargazers_count":167,"watchers_count":167,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":66,"mirror_url":null,"open_issues_count":6,"forks":66,"open_issues":6,"watchers":167,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"network_count":66,"subscribers_count":43}'
+    http_version: 
+  recorded_at: Wed, 01 Apr 2015 17:57:28 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/hstove/rbtc_arbitrage/issues?per_page=100&state=closed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 01 Apr 2015 17:57:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4859'
+      X-Ratelimit-Reset:
+      - '1427912111'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - W/"c54693aecf2ff23f1e62719544130e0f"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Github-Request-Id:
+      - AE1F4745:4CC2:1F4CC6:551C3188
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - d594a23ec74671eba905bf91ef329026
+    body:
+      encoding: UTF-8
+      string: '[{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/19","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/19/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/19/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/19/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/19","id":40861123,"number":19,"title":"Unusual
+        behavior","user":{"login":"blacehoule","id":3197278,"avatar_url":"https://avatars.githubusercontent.com/u/3197278?v=3","gravatar_id":"","url":"https://api.github.com/users/blacehoule","html_url":"https://github.com/blacehoule","followers_url":"https://api.github.com/users/blacehoule/followers","following_url":"https://api.github.com/users/blacehoule/following{/other_user}","gists_url":"https://api.github.com/users/blacehoule/gists{/gist_id}","starred_url":"https://api.github.com/users/blacehoule/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/blacehoule/subscriptions","organizations_url":"https://api.github.com/users/blacehoule/orgs","repos_url":"https://api.github.com/users/blacehoule/repos","events_url":"https://api.github.com/users/blacehoule/events{/privacy}","received_events_url":"https://api.github.com/users/blacehoule/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-08-21T23:24:02Z","updated_at":"2014-08-22T21:14:20Z","closed_at":"2014-08-22T21:14:20Z","body":"After
+        typing the command ''rbtc'':\r\nWARN: Unresolved specs during Gem::Specification.reset:\r\n      activemodel
+        (>= 3.1)\r\n      activesupport (>= 3.1)\r\n      thor (>= 0)\r\n      multi_json
+        (>= 1.3.4, ~> 1.3)\r\n      hashie (>= 1.2.0)\r\n      mime-types (< 3, >=
+        1.16)\r\n      tzinfo (>= 0)\r\nWARN: Clearing out unresolved specs.\r\nPlease
+        report a bug if this causes problems.\r\nfatal: Not a git repository (or any
+        of the parent directories): .git\r\nI, [AUG 21 2014  7:20:49 PM -0400#409]  INFO
+        -- : Fetching exchange rates\r\nI, [AUG 21 2014  7:20:50 PM -0400#409]  INFO
+        -- : Bitstamp (Ask): $522.49\r\nI, [AUG 21 2014  7:20:50 PM -0400#409]  INFO
+        -- : Campbx (Bid): $527.01\r\nI, [AUG 21 2014  7:20:50 PM -0400#409]  INFO
+        -- : buying 0.01 btc at Bitstamp for $5.26\r\nI, [AUG 21 2014  7:20:50 PM
+        -0400#409]  INFO -- : selling 0.01 btc at Campbx for $5.24\r\nI, [AUG 21 2014  7:20:50
+        PM -0400#409]  INFO -- : profit: $-0.02 (-0.34%) is below cutoff of 2%.\r\n\r\nSo
+        it does work, but not before throwing those warnings."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/18","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/18/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/18/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/18/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/18","id":39554922,"number":18,"title":"Changed
+        license date to 2014","user":{"login":"benhc123","id":4144334,"avatar_url":"https://avatars.githubusercontent.com/u/4144334?v=3","gravatar_id":"","url":"https://api.github.com/users/benhc123","html_url":"https://github.com/benhc123","followers_url":"https://api.github.com/users/benhc123/followers","following_url":"https://api.github.com/users/benhc123/following{/other_user}","gists_url":"https://api.github.com/users/benhc123/gists{/gist_id}","starred_url":"https://api.github.com/users/benhc123/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/benhc123/subscriptions","organizations_url":"https://api.github.com/users/benhc123/orgs","repos_url":"https://api.github.com/users/benhc123/repos","events_url":"https://api.github.com/users/benhc123/events{/privacy}","received_events_url":"https://api.github.com/users/benhc123/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-08-05T19:22:13Z","updated_at":"2014-09-13T00:41:50Z","closed_at":"2014-09-13T00:41:50Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/18","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/18","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/18.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/18.patch"},"body":"Changed
+        copyright date from 2013 to 2014."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/17","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/17/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/17/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/17/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/17","id":39554633,"number":17,"title":"Added
+        link to license","user":{"login":"benhc123","id":4144334,"avatar_url":"https://avatars.githubusercontent.com/u/4144334?v=3","gravatar_id":"","url":"https://api.github.com/users/benhc123","html_url":"https://github.com/benhc123","followers_url":"https://api.github.com/users/benhc123/followers","following_url":"https://api.github.com/users/benhc123/following{/other_user}","gists_url":"https://api.github.com/users/benhc123/gists{/gist_id}","starred_url":"https://api.github.com/users/benhc123/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/benhc123/subscriptions","organizations_url":"https://api.github.com/users/benhc123/orgs","repos_url":"https://api.github.com/users/benhc123/repos","events_url":"https://api.github.com/users/benhc123/events{/privacy}","received_events_url":"https://api.github.com/users/benhc123/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-08-05T19:20:35Z","updated_at":"2014-09-13T00:42:08Z","closed_at":"2014-09-13T00:42:08Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/17","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/17","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/17.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/17.patch"},"body":"Made
+        licensing clearer in Readme"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/16/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/16","id":39258085,"number":16,"title":"Add
+        stathat notifications","user":{"login":"hstove","id":1109058,"avatar_url":"https://avatars.githubusercontent.com/u/1109058?v=3","gravatar_id":"","url":"https://api.github.com/users/hstove","html_url":"https://github.com/hstove","followers_url":"https://api.github.com/users/hstove/followers","following_url":"https://api.github.com/users/hstove/following{/other_user}","gists_url":"https://api.github.com/users/hstove/gists{/gist_id}","starred_url":"https://api.github.com/users/hstove/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hstove/subscriptions","organizations_url":"https://api.github.com/users/hstove/orgs","repos_url":"https://api.github.com/users/hstove/repos","events_url":"https://api.github.com/users/hstove/events{/privacy}","received_events_url":"https://api.github.com/users/hstove/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":0,"created_at":"2014-08-01T03:09:32Z","updated_at":"2014-08-01T03:13:55Z","closed_at":"2014-08-01T03:13:55Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/16","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/16","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/16.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/16.patch"},"body":"Thanks
+        to @jordoh for implementing this. I''m sorry it took me so long to merge.
+        I had troubles merging with master, so I had to open a new pull request. Thanks
+        again!"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/15","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/15/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/15/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/15/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/15","id":38693742,"number":15,"title":"Fix
+        Digest::Digest warning","user":{"login":"ukd1","id":44345,"avatar_url":"https://avatars.githubusercontent.com/u/44345?v=3","gravatar_id":"","url":"https://api.github.com/users/ukd1","html_url":"https://github.com/ukd1","followers_url":"https://api.github.com/users/ukd1/followers","following_url":"https://api.github.com/users/ukd1/following{/other_user}","gists_url":"https://api.github.com/users/ukd1/gists{/gist_id}","starred_url":"https://api.github.com/users/ukd1/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/ukd1/subscriptions","organizations_url":"https://api.github.com/users/ukd1/orgs","repos_url":"https://api.github.com/users/ukd1/repos","events_url":"https://api.github.com/users/ukd1/events{/privacy}","received_events_url":"https://api.github.com/users/ukd1/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-07-25T03:04:13Z","updated_at":"2014-07-25T17:48:57Z","closed_at":"2014-07-25T17:48:57Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/15","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/15","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/15.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/15.patch"},"body":"This
+        closes the problem @preillyme (and everyone else) gets on > 2.1. It''s caused
+        by an old @coinbase gem which used Digest::Digest. FYI  ``OpenSSL::Digest::Digest
+        has been discouraged to use from very ancient era such as Ruby 1.8 and finally
+        was deprecated recently.``, see: http://stackoverflow.com/questions/21184960/ruby-digestdigest-is-deprecated-use-digest.\r\n\r\nThis
+        depends on #14 as I don''t like submodules :+1: "},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/14","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/14/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/14/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/14/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/14","id":38692657,"number":14,"title":"Remove
+        submodules, use Gemfile instead","user":{"login":"ukd1","id":44345,"avatar_url":"https://avatars.githubusercontent.com/u/44345?v=3","gravatar_id":"","url":"https://api.github.com/users/ukd1","html_url":"https://github.com/ukd1","followers_url":"https://api.github.com/users/ukd1/followers","following_url":"https://api.github.com/users/ukd1/following{/other_user}","gists_url":"https://api.github.com/users/ukd1/gists{/gist_id}","starred_url":"https://api.github.com/users/ukd1/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/ukd1/subscriptions","organizations_url":"https://api.github.com/users/ukd1/orgs","repos_url":"https://api.github.com/users/ukd1/repos","events_url":"https://api.github.com/users/ukd1/events{/privacy}","received_events_url":"https://api.github.com/users/ukd1/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-07-25T02:32:31Z","updated_at":"2014-08-01T03:19:34Z","closed_at":"2014-07-25T17:08:40Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/14","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/14","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/14.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/14.patch"},"body":"This
+        is a much nicer way to do the same thing, avoiding the headache that is git
+        submodules."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/13","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/13/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/13/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/13/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/13","id":38156463,"number":13,"title":"Bitstamp
+        error when ''bundle install''","user":{"login":"yuliji","id":1303356,"avatar_url":"https://avatars.githubusercontent.com/u/1303356?v=3","gravatar_id":"","url":"https://api.github.com/users/yuliji","html_url":"https://github.com/yuliji","followers_url":"https://api.github.com/users/yuliji/followers","following_url":"https://api.github.com/users/yuliji/following{/other_user}","gists_url":"https://api.github.com/users/yuliji/gists{/gist_id}","starred_url":"https://api.github.com/users/yuliji/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/yuliji/subscriptions","organizations_url":"https://api.github.com/users/yuliji/orgs","repos_url":"https://api.github.com/users/yuliji/repos","events_url":"https://api.github.com/users/yuliji/events{/privacy}","received_events_url":"https://api.github.com/users/yuliji/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-07-18T08:17:45Z","updated_at":"2014-07-18T08:26:34Z","closed_at":"2014-07-18T08:26:34Z","body":"When
+        I run ''bundle install'', it shows:\r\n\r\nCould not find gem ''bitstamp (>=
+        0) ruby'' in source at ./bitstamp.\r\nSource does not contain any versions
+        of ''bitstamp (>= 0) ruby''"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/12","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/12/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/12/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/12/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/12","id":37689454,"number":12,"title":"Digest::Digest
+        is deprecated; use Digest","user":{"login":"preillyme","id":51323,"avatar_url":"https://avatars.githubusercontent.com/u/51323?v=3","gravatar_id":"","url":"https://api.github.com/users/preillyme","html_url":"https://github.com/preillyme","followers_url":"https://api.github.com/users/preillyme/followers","following_url":"https://api.github.com/users/preillyme/following{/other_user}","gists_url":"https://api.github.com/users/preillyme/gists{/gist_id}","starred_url":"https://api.github.com/users/preillyme/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/preillyme/subscriptions","organizations_url":"https://api.github.com/users/preillyme/orgs","repos_url":"https://api.github.com/users/preillyme/repos","events_url":"https://api.github.com/users/preillyme/events{/privacy}","received_events_url":"https://api.github.com/users/preillyme/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-07-11T19:23:34Z","updated_at":"2014-07-25T17:47:32Z","closed_at":"2014-07-25T17:47:32Z","body":"rbtc
+        --seller bitstamp --buyer coinbase\r\n```\r\nI, [JUL 11 2014  7:21:44 PM +0000#15619]  INFO
+        -- : Fetching exchange rates\r\nDigest::Digest is deprecated; use Digest\r\n/home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/2.1.0/net/http/header.rb:17:in
+        `block in initialize_http_header'': undefined method `strip'' for nil:NilClass
+        (NoMethodError)\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/2.1.0/net/http/header.rb:15:in
+        `each''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/2.1.0/net/http/header.rb:15:in
+        `initialize_http_header''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/httparty-0.13.1/lib/httparty/request.rb:152:in
+        `setup_raw_request''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/httparty-0.13.1/lib/httparty/request.rb:90:in
+        `perform''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/httparty-0.13.1/lib/httparty.rb:521:in
+        `perform_request''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/httparty-0.13.1/lib/httparty.rb:457:in
+        `get''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/coinbase-1.3.0/lib/coinbase/client.rb:201:in
+        `http_verb''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/coinbase-1.3.0/lib/coinbase/client.rb:174:in
+        `get''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/coinbase-1.3.0/lib/coinbase/client.rb:133:in
+        `buy_price''\r\n        from /home/bitcoin/rbtc_arbitrage/lib/rbtc_arbitrage/clients/coinbase_client.rb:40:in
+        `price''\r\n        from /home/bitcoin/rbtc_arbitrage/lib/rbtc_arbitrage/trader.rb:78:in
+        `fetch_prices''\r\n        from /home/bitcoin/rbtc_arbitrage/lib/rbtc_arbitrage/trader.rb:38:in
+        `trade''\r\n        from /home/bitcoin/rbtc_arbitrage/lib/rbtc_arbitrage/cli.rb:14:in
+        `trade''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thor-0.18.1/lib/thor/command.rb:27:in
+        `run''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thor-0.18.1/lib/thor/invocation.rb:120:in
+        `invoke_command''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thor-0.18.1/lib/thor.rb:363:in
+        `dispatch''\r\n        from /home/ubuntu/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thor-0.18.1/lib/thor/base.rb:439:in
+        `start''\r\n        from ./bin/rbtc:5:in `<main>''\r\n```"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/11","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/11/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/11/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/11/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/11","id":36780787,"number":11,"title":"Test
+        against Ruby 2.1.1","user":{"login":"fanquake","id":863730,"avatar_url":"https://avatars.githubusercontent.com/u/863730?v=3","gravatar_id":"","url":"https://api.github.com/users/fanquake","html_url":"https://github.com/fanquake","followers_url":"https://api.github.com/users/fanquake/followers","following_url":"https://api.github.com/users/fanquake/following{/other_user}","gists_url":"https://api.github.com/users/fanquake/gists{/gist_id}","starred_url":"https://api.github.com/users/fanquake/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/fanquake/subscriptions","organizations_url":"https://api.github.com/users/fanquake/orgs","repos_url":"https://api.github.com/users/fanquake/repos","events_url":"https://api.github.com/users/fanquake/events{/privacy}","received_events_url":"https://api.github.com/users/fanquake/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":3,"created_at":"2014-06-30T09:12:56Z","updated_at":"2014-07-25T17:48:05Z","closed_at":"2014-07-25T17:47:32Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/11","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/11","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/11.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/11.patch"},"body":""},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/10","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/10/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/10/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/10/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/10","id":36249151,"number":10,"title":"Doesn''t
+        install correctly","user":{"login":"Wolfos","id":695652,"avatar_url":"https://avatars.githubusercontent.com/u/695652?v=3","gravatar_id":"","url":"https://api.github.com/users/Wolfos","html_url":"https://github.com/Wolfos","followers_url":"https://api.github.com/users/Wolfos/followers","following_url":"https://api.github.com/users/Wolfos/following{/other_user}","gists_url":"https://api.github.com/users/Wolfos/gists{/gist_id}","starred_url":"https://api.github.com/users/Wolfos/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Wolfos/subscriptions","organizations_url":"https://api.github.com/users/Wolfos/orgs","repos_url":"https://api.github.com/users/Wolfos/repos","events_url":"https://api.github.com/users/Wolfos/events{/privacy}","received_events_url":"https://api.github.com/users/Wolfos/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":12,"created_at":"2014-06-22T18:32:30Z","updated_at":"2015-01-05T15:15:25Z","closed_at":"2015-01-05T15:15:25Z","body":"I
+        tried this on 3 different machines (Linux server, Windows machine, Mac laptop),
+        and they all got the same thing; the dependencies don''t get installed properly.
+        Since this happens on every machine I tested this on, I''m pretty sure you
+        messed up.\r\n\r\nError is something like:\r\nfatal: not a git repository\r\ncould
+        not find minitest-4.7.5, etc.\r\n\r\nIf I install minitest 4.7.5 manually
+        it''ll just come up with something else, and something else, and something
+        else until I just get tired and give up."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/8","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/8/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/8/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/8/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/8","id":34554149,"number":8,"title":"Minor
+        Fixes","user":{"login":"GrahamCampbell","id":2829600,"avatar_url":"https://avatars.githubusercontent.com/u/2829600?v=3","gravatar_id":"","url":"https://api.github.com/users/GrahamCampbell","html_url":"https://github.com/GrahamCampbell","followers_url":"https://api.github.com/users/GrahamCampbell/followers","following_url":"https://api.github.com/users/GrahamCampbell/following{/other_user}","gists_url":"https://api.github.com/users/GrahamCampbell/gists{/gist_id}","starred_url":"https://api.github.com/users/GrahamCampbell/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/GrahamCampbell/subscriptions","organizations_url":"https://api.github.com/users/GrahamCampbell/orgs","repos_url":"https://api.github.com/users/GrahamCampbell/repos","events_url":"https://api.github.com/users/GrahamCampbell/events{/privacy}","received_events_url":"https://api.github.com/users/GrahamCampbell/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":0,"created_at":"2014-05-29T13:24:55Z","updated_at":"2014-06-20T19:57:00Z","closed_at":"2014-06-20T19:57:00Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/8","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/8","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/8.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/8.patch"},"body":"Whitespace
+        fixes and eof normalisation."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/6","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/6/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/6/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/6/events","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/6","id":31527104,"number":6,"title":"Add
+        stathat notifications","user":{"login":"jordoh","id":450345,"avatar_url":"https://avatars.githubusercontent.com/u/450345?v=3","gravatar_id":"","url":"https://api.github.com/users/jordoh","html_url":"https://github.com/jordoh","followers_url":"https://api.github.com/users/jordoh/followers","following_url":"https://api.github.com/users/jordoh/following{/other_user}","gists_url":"https://api.github.com/users/jordoh/gists{/gist_id}","starred_url":"https://api.github.com/users/jordoh/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jordoh/subscriptions","organizations_url":"https://api.github.com/users/jordoh/orgs","repos_url":"https://api.github.com/users/jordoh/repos","events_url":"https://api.github.com/users/jordoh/events{/privacy}","received_events_url":"https://api.github.com/users/jordoh/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":3,"created_at":"2014-04-15T05:24:34Z","updated_at":"2014-08-01T03:13:09Z","closed_at":"2014-08-01T03:13:09Z","pull_request":{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/pulls/6","html_url":"https://github.com/hstove/rbtc_arbitrage/pull/6","diff_url":"https://github.com/hstove/rbtc_arbitrage/pull/6.diff","patch_url":"https://github.com/hstove/rbtc_arbitrage/pull/6.patch"},"body":"Here''s
+        a clean application of these commits on the latest from master."},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/5","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/5/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/5/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/5/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/5","id":30719174,"number":5,"title":"Bundler::GemfileNotFound","user":{"login":"advancecoin","id":6887033,"avatar_url":"https://avatars.githubusercontent.com/u/6887033?v=3","gravatar_id":"","url":"https://api.github.com/users/advancecoin","html_url":"https://github.com/advancecoin","followers_url":"https://api.github.com/users/advancecoin/followers","following_url":"https://api.github.com/users/advancecoin/following{/other_user}","gists_url":"https://api.github.com/users/advancecoin/gists{/gist_id}","starred_url":"https://api.github.com/users/advancecoin/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/advancecoin/subscriptions","organizations_url":"https://api.github.com/users/advancecoin/orgs","repos_url":"https://api.github.com/users/advancecoin/repos","events_url":"https://api.github.com/users/advancecoin/events{/privacy}","received_events_url":"https://api.github.com/users/advancecoin/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-04-02T19:48:39Z","updated_at":"2014-04-05T21:53:58Z","closed_at":"2014-04-05T21:53:58Z","body":"Everytime
+        I try to run rbtc on Ubuntu or Linux Mint, I get the following error:\r\n\r\n```\r\n$rbtc\r\n
+        \r\n/home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler/shared_helpers.rb:24:in
+        `default_gemfile'': Could not locate Gemfile (Bundler::GemfileNotFound)\r\n        from
+        /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:248:in
+        `default_gemfile''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:192:in
+        `root''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:99:in
+        `bundle_path''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:400:in
+        `configure_gem_home_and_path''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:90:in
+        `configure''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:151:in
+        `definition''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:116:in
+        `setup''\r\n        from /home/user/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.6.1/lib/bundler.rb:132:in
+        `require''\r\n        from /home/user/.rvm/gems/ruby-2.1.1/gems/rbtc_arbitrage-2.0.2/lib/rbtc_arbitrage.rb:2:in
+        `<top (required)>''\r\n        from /home/user/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in
+        `require''\r\n        from /home/user/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in
+        `require''\r\n        from /home/user/.rvm/gems/ruby-2.1.1/gems/rbtc_arbitrage-2.0.2/bin/rbtc:4:in
+        `<top (required)>''\r\n        from /home/user/.rvm/gems/ruby-2.1.1/bin/rbtc:23:in
+        `load''\r\n        from /home/user/.rvm/gems/ruby-2.1.1/bin/rbtc:23:in `<main>''\r\n        from
+        /home/user/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `eval''\r\n        from
+        /home/user/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `<main>''\r\n```\r\n\r\nI''ve
+        uninstalled and reinstalled RVM and different versions of Ruby several times.
+        Do you know what I''m doing wrong?"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/4","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/4/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/4/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/4/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/4","id":30668873,"number":4,"title":"More
+        Exchanges","user":{"login":"pikespeak","id":7086427,"avatar_url":"https://avatars.githubusercontent.com/u/7086427?v=3","gravatar_id":"","url":"https://api.github.com/users/pikespeak","html_url":"https://github.com/pikespeak","followers_url":"https://api.github.com/users/pikespeak/followers","following_url":"https://api.github.com/users/pikespeak/following{/other_user}","gists_url":"https://api.github.com/users/pikespeak/gists{/gist_id}","starred_url":"https://api.github.com/users/pikespeak/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pikespeak/subscriptions","organizations_url":"https://api.github.com/users/pikespeak/orgs","repos_url":"https://api.github.com/users/pikespeak/repos","events_url":"https://api.github.com/users/pikespeak/events{/privacy}","received_events_url":"https://api.github.com/users/pikespeak/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-04-02T08:42:29Z","updated_at":"2014-04-05T22:40:30Z","closed_at":"2014-04-05T22:40:30Z","body":"Hello
+        Henk, it is possible to Add more Exchanges?\r\n\r\nIn Europe the most of your
+        Supported Exchanges dont Work fine.\r\n\r\nWoud it be Possible to Add Kraken
+        as an Exchange too?\r\nhttps://www.kraken.com/help/api\r\n\r\nGreetz\r\n\r\nOliver"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/3","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/3/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/3/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/3/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/3","id":30009882,"number":3,"title":"price'':
+        uninitialized constant RbtcArbitrage::Clients::BitstampClient::Bitstamp (NameError)","user":{"login":"JsonSam","id":5869422,"avatar_url":"https://avatars.githubusercontent.com/u/5869422?v=3","gravatar_id":"","url":"https://api.github.com/users/JsonSam","html_url":"https://github.com/JsonSam","followers_url":"https://api.github.com/users/JsonSam/followers","following_url":"https://api.github.com/users/JsonSam/following{/other_user}","gists_url":"https://api.github.com/users/JsonSam/gists{/gist_id}","starred_url":"https://api.github.com/users/JsonSam/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/JsonSam/subscriptions","organizations_url":"https://api.github.com/users/JsonSam/orgs","repos_url":"https://api.github.com/users/JsonSam/repos","events_url":"https://api.github.com/users/JsonSam/events{/privacy}","received_events_url":"https://api.github.com/users/JsonSam/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2014-03-24T05:07:59Z","updated_at":"2014-04-05T22:40:46Z","closed_at":"2014-04-05T22:40:46Z","body":"@hstove
+        - When I run rbtc I am getting the following error\r\n\r\n        $ rbtc\r\n        I,
+        [MAR 24 2014 10:29:15 AM +0530#5206]  INFO -- : Fetching exchange rates\r\n/home/user/.rvm/gems/ruby-2.0.0-p353@ui/gems/rbtc_arbitrage-2.0.1/lib/rbtc_arbitrage/clients/bitstamp_client.rb:31:in
+        `price'': uninitialized constant       RbtcArbitrage::Clients::BitstampClient::Bitstamp
+        (NameError)\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/rbtc_arbitrage-2.0.1/lib/rbtc_arbitrage/trader.rb:82:in
+        `fetch_prices''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/rbtc_arbitrage-2.0.1/lib/rbtc_arbitrage/trader.rb:35:in
+        `trade''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/rbtc_arbitrage-2.0.1/lib/rbtc_arbitrage/cli.rb:14:in
+        `trade''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/thor-0.19.0/lib/thor/command.rb:27:in
+        `run''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/thor-0.19.0/lib/thor/invocation.rb:126:in
+        `invoke_command''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/thor-0.19.0/lib/thor.rb:359:in
+        `dispatch''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/thor-0.19.0/lib/thor/base.rb:440:in
+        `start''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/gems/rbtc_arbitrage-2.0.1/bin/rbtc:5:in
+        `<top (required)>''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/bin/rbtc:23:in
+        `load''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/bin/rbtc:23:in
+        `<main>''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/bin/ruby_executable_hooks:15:in
+        `eval''\r\n\tfrom /home/jefferson/.rvm/gems/ruby-2.0.0-p353@ui/bin/ruby_executable_hooks:15:in
+        `<main>''\r\n\r\nI have the following in my Gemfile and bundle install\r\nGemfile\r\ngem
+        ''rbtc_arbitrage'', ''~> 2.0.1''"},{"url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/2","labels_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/2/labels{/name}","comments_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/2/comments","events_url":"https://api.github.com/repos/hstove/rbtc_arbitrage/issues/2/events","html_url":"https://github.com/hstove/rbtc_arbitrage/issues/2","id":24233848,"number":2,"title":"Sanity
+        check - All env variables set correctly","user":{"login":"ErmosK","id":5785917,"avatar_url":"https://avatars.githubusercontent.com/u/5785917?v=3","gravatar_id":"","url":"https://api.github.com/users/ErmosK","html_url":"https://github.com/ErmosK","followers_url":"https://api.github.com/users/ErmosK/followers","following_url":"https://api.github.com/users/ErmosK/following{/other_user}","gists_url":"https://api.github.com/users/ErmosK/gists{/gist_id}","starred_url":"https://api.github.com/users/ErmosK/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/ErmosK/subscriptions","organizations_url":"https://api.github.com/users/ErmosK/orgs","repos_url":"https://api.github.com/users/ErmosK/repos","events_url":"https://api.github.com/users/ErmosK/events{/privacy}","received_events_url":"https://api.github.com/users/ErmosK/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"milestone":null,"comments":3,"created_at":"2013-12-13T08:55:25Z","updated_at":"2013-12-23T18:32:11Z","closed_at":"2013-12-23T18:32:11Z","body":"/Library/Ruby/Gems/2.0.0/gems/bitstamp-0.3.0/lib/bitstamp.rb:72:in
+        `sanity_check!'': Bitstamp Gem not properly configured (Bitstamp::MissingConfigExeception)\r\n\tfrom
+        /Library/Ruby/Gems/2.0.0/gems/bitstamp-0.3.0/lib/bitstamp.rb:49:in `balance''\r\n\tfrom
+        /Library/Ruby/Gems/2.0.0/gems/rbtc_arbitrage-0.1.0/lib/rbtc_arbitrage/trader.rb:102:in
+        `get_balance''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/rbtc_arbitrage-0.1.0/lib/rbtc_arbitrage/trader.rb:30:in
+        `execute_trade''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/rbtc_arbitrage-0.1.0/lib/rbtc_arbitrage/trader.rb:23:in
+        `trade''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/rbtc_arbitrage-0.1.0/lib/rbtc_arbitrage/cli.rb:10:in
+        `trade''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/thor-0.18.1/lib/thor/command.rb:27:in
+        `run''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/thor-0.18.1/lib/thor/invocation.rb:120:in
+        `invoke_command''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/thor-0.18.1/lib/thor.rb:363:in
+        `dispatch''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/thor-0.18.1/lib/thor/base.rb:439:in
+        `start''\r\n\tfrom /Library/Ruby/Gems/2.0.0/gems/rbtc_arbitrage-0.1.0/bin/rbtc:4:in
+        `<top (required)>''\r\n\tfrom /usr/bin/rbtc:23:in `load''\r\n\tfrom /usr/bin/rbtc:23:in
+        `<main>''\r\n\r\n\r\nThat happens when I try and do a live trade. All environment
+        variables have been setup correctly with BITSTAMP_ADDRESS being my Bitstamp
+        ''wallet id'' for deposit, and MTGOX_ADDRESS being the Gox one.\r\n\r\n"}]'
+    http_version: 
+  recorded_at: Wed, 01 Apr 2015 17:57:30 GMT
+recorded_with: VCR 2.8.0

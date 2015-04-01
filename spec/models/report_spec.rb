@@ -39,7 +39,7 @@ RSpec.describe Report, :type => :model do
       )
     end
     it "properly groups issues into their tier", :vcr do
-      allow_any_instance_of(Report).to receive(:issues).and_yield(issue) { }
+      allow_any_instance_of(Report).to receive(:issues).and_yield(issue)
       report.save
       report.reload
       first_tier = Issue.duration_tiers[0]
@@ -154,6 +154,12 @@ RSpec.describe Report, :type => :model do
     context "issue" do
       subject { report.badge_url("issue") }
       it { is_expected.to include("issue") }
+    end
+
+    context 'concise' do
+      subject { report.badge_url('pr', style: 'flat', concise: true) }
+      it { is_expected.to include('min') }
+      it { is_expected.not_to include('minutes') }
     end
 
     it "should include the right color" do

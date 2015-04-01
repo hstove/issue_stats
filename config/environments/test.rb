@@ -13,7 +13,7 @@ Prwatch::Application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_files  = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
@@ -34,7 +34,7 @@ Prwatch::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  ActiveJob::Base.queue_adapter = :inline
+  config.queue_adapter = :inline
   config.cache_store = :null_store
-  ActiveJob::Base.logger.level = 2
+  config.log_level = :error
 end
