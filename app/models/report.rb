@@ -42,7 +42,7 @@ class Report < ActiveRecord::Base
   def bootstrap_async
     self.last_enqueued_at = DateTime.now
     save!
-    BootstrapReport.enqueue github_key
+    BootstrapReport.perform_later github_key
   end
 
   def bootstrap
@@ -117,10 +117,10 @@ class Report < ActiveRecord::Base
   end
 
   # variant is either 'issue' or 'pr'
-  def badge_url(variant, style = 'plastic', concise = false)
+  def badge_url(variant, style: 'plastic', concise: false)
     preamble, words, color = badge_values(variant, concise)
 
-    url = "http://img.shields.io/badge/#{URI.escape(preamble)}-"
+    url = "https://img.shields.io/badge/#{URI.escape(preamble)}-"
     url << "#{URI.escape(words)}-#{color}.svg"
     url << "?style=#{style}" if style
     url

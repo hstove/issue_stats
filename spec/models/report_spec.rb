@@ -156,6 +156,12 @@ RSpec.describe Report, :type => :model do
       it { is_expected.to include("issue") }
     end
 
+    context 'concise' do
+      subject { report.badge_url('pr', style: 'flat', concise: true) }
+      it { is_expected.to include('min') }
+      it { is_expected.not_to include('minutes') }
+    end
+
     it "should include the right color" do
       allow(Issue).to receive(:duration_index).and_return(1)
       expect(report.badge_url('pr')).to include("green.svg")
