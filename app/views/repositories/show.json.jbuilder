@@ -17,9 +17,9 @@ json.stargazers_count @report.stargazers_count
 json.size @report.size
 json.pr_close_time @report.pr_close_time
 json.issue_close_time @report.issue_close_time
-json.pr_badge_preamble @report.badge_preamble('pr')
-json.pr_badge_words @report.badge_words('pr')
-json.pr_badge_color @report.badge_color('pr')
-json.issue_badge_preamble @report.badge_preamble('issue')
-json.issue_badge_words @report.badge_words('issue')
-json.issue_badge_color @report.badge_color('issue')
+json.pr_badge_preamble @report.badge_preamble('pr', params[:concise])
+json.pr_badge_words @report.badge_words('pr', params[:concise])
+json.pr_badge_color @report.badge_color('pr', params[:concise])
+json.issue_badge_preamble @report.badge_preamble('issue', params[:concise])
+json.issue_badge_words @report.badge_words('issue', params[:concise])
+json.issue_badge_color @report.badge_color('issue', params[:concise])
