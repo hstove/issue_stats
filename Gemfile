@@ -89,4 +89,5 @@ group :test, :development do
   gem "guard-sidekiq"
   gem "spring", group: :development
   gem 'dotenv-rails'
+  gem 'spring-commands-rspec'
 end

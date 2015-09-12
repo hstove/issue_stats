@@ -381,6 +381,8 @@ GEM
       simple-random
       sinatra (>= 1.2.6)
     spring (1.1.3)
+    spring-commands-rspec (1.0.2)
+      spring (>= 0.9.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -502,6 +504,7 @@ DEPENDENCIES
   simplecov
   split
   spring
+  spring-commands-rspec
   stripe
   turbolinks (~> 2.5.3)
   uglifier (>= 1.3.0)
