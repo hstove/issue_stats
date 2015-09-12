@@ -3,9 +3,16 @@ require 'rails_helper'
 RSpec.describe RepositoriesController, :type => :controller do
 
   describe "GET show" do
-    it "returns http success", :vcr do
+    render_views
+    it "returns html success", :vcr do
       get :show, owner: "hstove", repository: "rbtc_arbitrage"
       expect(response).to be_success
+    end
+
+    it "returns json success", :vcr do
+      get :show, owner: "hstove", repository: "rbtc_arbitrage", format: :json
+      expect(response).to be_success
+      expect(JSON.parse(response.body)['issue_badge_preamble']).not_to be_blank
     end
   end
 
@@ -38,6 +45,11 @@ RSpec.describe RepositoriesController, :type => :controller do
     it 'should pass along the style param' do
       get :badge, owner: 'hstove', repository: 'rbtc_arbitrage', variant: :issue, style: 'flat-square'
       expect(response).to redirect_to(%r{\?style=flat-square})
+    end
+
+    it 'should have cache expiration headers' do
+      get :badge, owner: 'hstove', repository: 'rbtc_arbitrage', variant: :issue
+      expect(response.headers['Cache-Control']).to eql('no-cache')
     end
   end
 

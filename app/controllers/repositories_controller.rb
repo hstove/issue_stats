@@ -20,8 +20,7 @@ class RepositoriesController < ApplicationController
   end
 
   def badge
-    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
+    expires_now
     if variant
       redirect_to @report.badge_url(variant, style: style, concise: concise)
     else
