@@ -21,7 +21,7 @@ class RepositoriesController < ApplicationController
 
   def badge
     expires_now
-    fresh_when(@report, public: true)
+    fresh_when(@report, public: true, template: false)
     if variant
       redirect_to @report.badge_url(variant, style: style, concise: concise)
     else

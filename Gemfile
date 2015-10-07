@@ -37,7 +37,7 @@ gem "rails-observers"
 gem "split", require: "split/dashboard"
 gem "roadie", '~> 2.4'
 gem "afterparty", github: "hstove/afterparty"
-gem "rails_12factor"
+gem "rails_12factor", group: :production
 gem "dynamojs_rails", github: "hstove/dynamojs_rails"
 gem "underscore-rails"
 gem "backbone-rails"
