@@ -31,7 +31,7 @@ http://issuestats.com/github/nodejs/node/badge/pr?style=flat-square :
 You can also add `?concise=true` to the URL to get a more concise version: (thanks to [brettwooldridge](https://github.com/brettwooldridge)):
 
 http://issuestats.com/github/rails/rails/badge/pr?style=flat-square&concise=true :
-![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square&concise=true)
+![rails/rails](http://issuestats.com/github/rails/rails/badge/pr?style=flat-square&concise=true)
 
 ## API
 
