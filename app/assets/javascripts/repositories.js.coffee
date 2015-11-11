@@ -19,6 +19,9 @@
 $ ->
   $('#search').submit ->
     val = $('#search-input').val()
+    # Remove any GitHub URL prefix from the target
+    # e.g. https://github.com/rails/rails -> rails/rails
+    val = val.replace(/^https?:\/\/github.com\//, '')
     document.location = "/github/#{val}"
     false
 
