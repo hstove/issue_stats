@@ -20,18 +20,18 @@ http://issuestats.com/github/twbs/bootstrap/badge/issue :
 
 You can add `?style=flat` to the url to get a flat badge:
 
-http://issuestats.com/github/joyent/node/badge/pr?style=flat :
-![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat)
+http://issuestats.com/github/nodejs/node/badge/pr?style=flat :
+![nodejs/node](http://issuestats.com/github/nodejs/node/badge/pr?style=flat)
 
 `?style=flat-square` is also available:
 
-http://issuestats.com/github/joyent/node/badge/pr?style=flat-square :
-![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square)
+http://issuestats.com/github/nodejs/node/badge/pr?style=flat-square :
+![nodejs/node](http://issuestats.com/github/nodejs/node/badge/pr?style=flat-square)
 
 You can also add `?concise=true` to the URL to get a more concise version: (thanks to [brettwooldridge](https://github.com/brettwooldridge)):
 
 http://issuestats.com/github/rails/rails/badge/pr?style=flat-square&concise=true :
-![joyent/node](http://issuestats.com/github/joyent/node/badge/pr?style=flat-square&concise=true)
+![nodejs/node](http://issuestats.com/github/nodejs/node/badge/pr?style=flat-square&concise=true)
 
 ## API
 
