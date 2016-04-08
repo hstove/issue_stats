@@ -58,7 +58,7 @@ rake db:seed # enqueues a Sidekiq job
 guard
 ~~~
 
-Running [`gaurd`](https://github.com/guard/guard) will start a few things:
+Running [`guard`](https://github.com/guard/guard) will start a few things:
 
 - rails at http://localhost:3006
 - a Sidekiq worker a concurrency of 1
